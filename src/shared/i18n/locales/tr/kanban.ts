@@ -100,7 +100,6 @@ export default {
   errDispatch: "Dağıtım başarısız",
 
   // Tooltips & buttons
-  hqBoardTooltip: "Claw3D genel merkez panosu (salt okunur ayna)",
   dismissError: "Hatayı kapat",
   closeTaskDetails: "Görev detaylarını kapat",
 } as const;

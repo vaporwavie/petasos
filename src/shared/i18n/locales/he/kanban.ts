@@ -95,7 +95,6 @@ export default {
   errReclaim: "ההחזרה נכשלה",
   errDispatch: "השיגור נכשל",
 
-  hqBoardTooltip: "לוח המטה של Claw3D (תצוגת מראה לקריאה בלבד)",
   dismissError: "סגירת השגיאה",
   closeTaskDetails: "סגירת פרטי המשימה",
 } as const;

@@ -24,10 +24,6 @@ A delayed board reply for the old profile cannot replace the new profile's tasks
 
 Editing a connection without changing its id resets loaded tasks and workspace forms, ignores late replies, and releases the configuration listener on unmount.
 
-### SSH virtual board preference
-
-A saved SSH-only HQ board preference does not suppress the real HTTP task list or its mutation controls when the user opens a direct Remote connection.
-
 ## Statuses and columns
 
 The board renders the agent's canonical statuses, kept in sync with the agent's `kanban_db.VALID_STATUSES` and the dashboard plugin's `BOARD_COLUMNS`. Mis-syncing here silently mis-buckets cards into To-do.
@@ -55,9 +51,3 @@ A 6-second poll (`POLL_INTERVAL_MS`) runs while the tab is visible, a `focus` / 
 Clicking a card opens a right-docked issue drawer (`kanban-detail-drawer`) fed by `kanbanGetTask` ([[src/main/kanban.ts#getTask]]).
 
 It shows status, assignee, body, latest run summary, result, the read-only comment thread, and the recent event timeline. It is presentation-only; mutations stay on the card actions.
-
-## Claw3D HQ virtual board
-
-A read-only "HQ (Claw3D)" board appears in the switcher when SSH tunnel mode can read the remote task-store JSON ([[src/main/kanban.ts#listClaw3dHqTasks]]).
-
-It is a renderer-only mirror — selecting it routes reads to the remote store, hides all mutation affordances, and never calls the backend board-switch RPC.

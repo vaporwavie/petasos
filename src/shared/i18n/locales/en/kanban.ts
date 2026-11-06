@@ -107,7 +107,6 @@ export default {
   errDispatch: "Dispatch failed",
 
   // Tooltips & buttons
-  hqBoardTooltip: "Claw3D headquarters board (read-only mirror)",
   dismissError: "Dismiss error",
   closeTaskDetails: "Close task details",
 } as const;

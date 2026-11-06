@@ -39,9 +39,6 @@ function installApi(): void {
         ],
       }),
       kanbanListTasks: vi.fn().mockResolvedValue({ success: true, data: [] }),
-      kanbanListClaw3dHqTasks: vi
-        .fn()
-        .mockResolvedValue({ success: false, error: "not available" }),
       kanbanCreateTask: vi
         .fn()
         .mockResolvedValue({ success: true, data: { id: "t1" } }),
@@ -88,15 +85,6 @@ describe("Kanban workspace folder", () => {
     fireEvent.change(input, { target: { value: "/srv/app" } });
     expect(input.value).toBe("/srv/app");
     expect(window.hermesAPI.selectFolder).not.toHaveBeenCalled();
-  });
-
-  // @lat: [[kanban#Kanban board tab#Remote target lifecycle#SSH virtual board preference]]
-  it("loads real remote tasks even when the saved SSH virtual board was HQ", async () => {
-    window.localStorage.setItem("hermes:kanban:active-board", "__claw3d_hq__");
-    render(<Kanban visible remoteMode />);
-    await screen.findByText("kanban.newTask");
-    expect(window.hermesAPI.kanbanListTasks).toHaveBeenCalled();
-    expect(document.querySelector(".kanban-hq-banner")).toBeNull();
   });
 
   // @lat: [[kanban#Kanban board tab#Remote target lifecycle#Profile changes]]

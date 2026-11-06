@@ -1750,8 +1750,6 @@ const hermesAPI = {
     ipcRenderer.invoke("kanban-comment-task", taskId, body, profile),
   kanbanDispatchOnce: (dryRun?: boolean, profile?: string) =>
     ipcRenderer.invoke("kanban-dispatch-once", dryRun, profile),
-  kanbanListClaw3dHqTasks: () =>
-    ipcRenderer.invoke("kanban-list-claw3d-hq-tasks"),
 
   // Shell
   openExternal: (url: string): Promise<void> =>

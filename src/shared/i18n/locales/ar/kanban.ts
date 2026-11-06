@@ -105,7 +105,6 @@ export default {
   errDispatch: "فشل التوزيع",
 
   // Tooltips & buttons
-  hqBoardTooltip: "لوحة مقر Claw3D (نسخة للقراءة فقط)",
   dismissError: "تجاهل الخطأ",
   closeTaskDetails: "إغلاق تفاصيل المهمة",
 } as const;
