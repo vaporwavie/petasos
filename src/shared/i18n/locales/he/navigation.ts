@@ -8,7 +8,6 @@ export default {
   pinned: "מוצמדים",
   discover: "גילוי",
   agents: "פרופילים",
-  office: "אופיס",
   models: "מודלים",
   providers: "ספקים",
   skills: "מיומנויות",

@@ -76,7 +76,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 <td width="50%" align="center"><b>Kanban</b><br/><img width="100%" alt="Kanban" src="previews/kanban.png" /></td>
 </tr>
 <tr>
-<td width="50%" align="center"><b>Office</b><br/><img width="100%" alt="Office" src="previews/office.png" /></td>
 <td width="50%" align="center"><b>Settings</b><br/><img width="100%" alt="Settings" src="previews/settings.png" /></td>
 </tr>
 </table>
@@ -97,7 +96,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 - **保存済みモデル** — プロバイダごとのモデル設定を CRUD で管理
 - **スケジュールタスク** — 分単位 / 時間単位 / 日単位 / 週単位 / カスタム cron に対応する cron ジョブビルダー（15 種類の配信先）
 - **16 種類のメッセージングゲートウェイ** — Telegram, Discord, Slack, WhatsApp, Signal, Matrix, Mattermost, Email (IMAP/SMTP), SMS (Twilio/Vonage), iMessage (BlueBubbles), DingTalk, Feishu/Lark, WeCom, WeChat (iLink Bot), Webhooks, Home Assistant
-- **Hermes Office (Claw3d)** — ビジュアルな 3D インターフェース。開発サーバーとアダプタの管理機能を備える
 - **バックアップ、インポート、デバッグダンプ** — 設定画面からデータの完全なバックアップ / リストアとシステム診断が可能
 - **ログビューア** — ゲートウェイとエージェントのログを設定画面から直接閲覧
 - **自動アップデーター** — electron-updater を使ったアップデートチェックとインストール
@@ -131,7 +129,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 | **Tools**     | 個別のツールセットを有効化 / 無効化                                                           |
 | **Schedules** | 配信先付きの cron ジョブを作成・管理                                                          |
 | **Gateway**   | メッセージングプラットフォーム統合の設定と制御                                                |
-| **Office**    | Claw3d ビジュアルインターフェースのセットアップと管理                                         |
 | **Settings**  | プロバイダ設定、認証情報プール、バックアップ / インポート、ログビューア、ネットワーク、テーマ |
 
 ## 対応プロバイダ

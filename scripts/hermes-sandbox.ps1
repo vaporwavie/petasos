@@ -119,7 +119,6 @@ function Set-SandboxPorts {
   $apiPort = Find-FreePort 19642
   $sshLocalPort = Find-FreePort ($apiPort + 120)
   $rendererPort = Find-FreePort ($apiPort + 240)
-  $claw3dPort = Find-FreePort ($apiPort + 360)
 
   $env:HERMES_DESKTOP_DEFAULT_API_PORT = [string]$apiPort
   $env:HERMES_DESKTOP_PORT_RANGE_START = [string]($apiPort + 1)
@@ -132,7 +131,6 @@ function Set-SandboxPorts {
     profilePortEnd = $apiPort + 99
     sshLocalPort = $sshLocalPort
     rendererPort = $rendererPort
-    claw3dPort = $claw3dPort
   } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $PortsFile -Encoding UTF8
 
   $desktopConfig = Join-Path $HermesHome "desktop.json"
@@ -155,9 +153,7 @@ function Set-SandboxPorts {
   $desktop.ssh.localPort = $sshLocalPort
   $desktop | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $desktopConfig -Encoding UTF8
 
-  Set-Content -LiteralPath (Join-Path $HermesHome "claw3d-port") -Value ([string]$claw3dPort) -Encoding UTF8
-
-  Write-Host "[hermes-sandbox] ports: api=$apiPort profiles=$($apiPort + 1)-$($apiPort + 99) renderer=$rendererPort ssh-local=$sshLocalPort claw3d=$claw3dPort"
+  Write-Host "[hermes-sandbox] ports: api=$apiPort profiles=$($apiPort + 1)-$($apiPort + 99) renderer=$rendererPort ssh-local=$sshLocalPort"
 }
 
 function Sync-Config {

@@ -297,8 +297,7 @@ export function getEnhancedPath(): string {
           join(HERMES_HOME, "git", "usr", "bin"),
           join(HERMES_HOME, "node"),
           join(HERMES_VENV, "Scripts"),
-          // Common user/system installs used when Claw3D setup runs before or
-          // outside the bundled installer.
+          // Common user/system Node installs outside the bundled installer.
           process.env.NVM_SYMLINK,
           process.env.APPDATA ? join(process.env.APPDATA, "npm") : undefined,
           process.env.ProgramFiles
@@ -739,9 +738,8 @@ export function runHermesDoctor(): string {
 
 const OPENCLAW_DIR_NAMES = [".openclaw", ".clawdbot", ".moldbot"];
 
-// hermes-desktop itself creates ~/.openclaw/claw3d/ as a stub when preparing
-// Claw3D settings (see claw3d.ts:writeClaw3dSettings), so a bare `existsSync`
-// check would surface that empty stub as a "real" OpenClaw install and
+// Older hermes-desktop builds created ~/.openclaw/claw3d/ as an empty stub,
+// so a bare `existsSync` check would surface that stub as a "real" OpenClaw install and
 // prompt the user to migrate from themselves. Require at least one regular
 // file anywhere in the tree so empty scaffolding doesn't trigger the banner.
 function dirContainsAnyFile(dir: string, maxDepth = 3): boolean {

@@ -1,14 +1,6 @@
 import type { DownloadProgress } from "../../../../shared/update-progress";
 import { useUpdateDownloadText } from "../../components/common/useUpdateDownloadText";
-import {
-  lazy,
-  Suspense,
-  useState,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-} from "react";
+import { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import Chat from "../Chat/Chat";
 import BotGroups from "../BotGroups/BotGroups";
 import {
@@ -54,7 +46,6 @@ import {
   Brain,
   Workflow,
   Signal,
-  Building,
   KeyRound,
   Timer,
   Kanban as KanbanIcon,
@@ -69,15 +60,11 @@ import { useI18n } from "../../components/useI18n";
 import { useConnectionTargetRevision } from "../../hooks/useConnectionTargetRevision";
 import FloatingPet from "../../components/pet/FloatingPet";
 
-// @lat: [[main-process#Deferred Office loading]]
-const Office = lazy(() => import("../Office/Office"));
-
 type View =
   | "chat"
   | "botGroups"
   | "discover"
   | "agents"
-  | "office"
   | "providers"
   | "skills"
   | "memory"
@@ -91,7 +78,6 @@ const PINNED_NAV_ITEMS: { view: View; icon: LucideIcon; labelKey: string }[] = [
   { view: "discover", icon: Compass, labelKey: "navigation.discover" },
   // "agents" (Profiles) is reached from the sidebar-footer ProfileSwitcher's
   // "Manage profiles" action rather than a top-level nav item.
-  { view: "office", icon: Building, labelKey: "navigation.office" },
   { view: "kanban", icon: KanbanIcon, labelKey: "navigation.kanban" },
   // "skills" lives under the Discover tab (installed + community), so it's no
   // longer a top-level nav item.
@@ -1114,14 +1100,6 @@ function Layout({
                 onSelectProfile={handleSelectProfile}
                 onChatWith={handleChatWithProfile}
               />
-            </div>
-          )}
-
-          {visitedViews.has("office") && (
-            <div style={paneStyle("office")}>
-              <Suspense fallback={null}>
-                <Office profile={activeProfile} visible={view === "office"} />
-              </Suspense>
             </div>
           )}
 

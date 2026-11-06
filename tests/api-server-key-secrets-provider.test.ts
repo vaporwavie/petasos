@@ -9,7 +9,7 @@ import { tmpdir } from "os";
  * The secrets provider's enumerable map is overlaid BENEATH the `.env` view at
  * the top of getApiServerKey — process.env > .env > provider — so a
  * `command`-provider user with API_SERVER_KEY in their vault stops getting 401s
- * from claw3d.ts / mcp-servers.ts / index.ts, while the default env provider's
+ * from mcp-servers.ts / index.ts, while the default env provider's
  * behavior is byte-for-byte unchanged.
  *
  * These tests run the REAL chain (config.yaml → getSecretsProvider →

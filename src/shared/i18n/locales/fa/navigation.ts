@@ -4,7 +4,6 @@ export default {
   sessions: "نشست‌ها",
   discover: "کاوش",
   agents: "نمایه‌ها",
-  office: "دفتر",
   models: "مدل‌ها",
   providers: "ارائه‌دهندگان",
   projects: "پروژه‌ها",

@@ -25,9 +25,7 @@ import type { DesktopSessionLocalError } from "../shared/session-continuation";
 import type {
   ImportWalletInput,
   ProfileWallet,
-  ProvisionWalletResult,
   WalletMutationResult,
-  WalletPortfolioResult,
   WalletSyncResult,
 } from "../shared/wallets";
 import type { TokenBalancesResponse } from "../shared/tokens";
@@ -1153,17 +1151,6 @@ const hermesAPI = {
   syncWallets: (profile?: string): Promise<WalletSyncResult> =>
     ipcRenderer.invoke("wallet-sync", profile),
 
-  // Backend-driven wallet ops (Office space representatives): token balances
-  // for a cloud wallet, and provisioning a cloud wallet for the linked agent.
-  getWalletPortfolio: (
-    profile: string | undefined,
-    walletId: string,
-  ): Promise<WalletPortfolioResult> =>
-    ipcRenderer.invoke("wallet-portfolio", profile, walletId),
-
-  provisionCloudWallet: (profile?: string): Promise<ProvisionWalletResult> =>
-    ipcRenderer.invoke("wallet-provision", profile),
-
   createWallet: (
     profile?: string,
     name?: string,
@@ -1523,73 +1510,6 @@ const hermesAPI = {
     return () =>
       ipcRenderer.removeListener("custom-providers-changed", handler);
   },
-
-  // Claw3D
-  claw3dStatus: (): Promise<{
-    cloned: boolean;
-    installed: boolean;
-    devServerRunning: boolean;
-    adapterRunning: boolean;
-    port: number;
-    portInUse: boolean;
-    wsUrl: string;
-    running: boolean;
-    error: string;
-    remoteUrl?: string | null;
-    remoteSource?: "ssh" | null;
-  }> => ipcRenderer.invoke("claw3d-status"),
-
-  claw3dSetup: (): Promise<{ success: boolean; error?: string }> =>
-    ipcRenderer.invoke("claw3d-setup"),
-
-  onClaw3dSetupProgress: (
-    callback: (progress: {
-      step: number;
-      totalSteps: number;
-      title: string;
-      detail: string;
-      log: string;
-    }) => void,
-  ): (() => void) => {
-    const handler = (
-      _event: Electron.IpcRendererEvent,
-      progress: unknown,
-    ): void =>
-      callback(
-        progress as {
-          step: number;
-          totalSteps: number;
-          title: string;
-          detail: string;
-          log: string;
-        },
-      );
-    ipcRenderer.on("claw3d-setup-progress", handler);
-    return () => ipcRenderer.removeListener("claw3d-setup-progress", handler);
-  },
-
-  claw3dGetPort: (): Promise<number> => ipcRenderer.invoke("claw3d-get-port"),
-  claw3dSetPort: (port: number): Promise<boolean> =>
-    ipcRenderer.invoke("claw3d-set-port", port),
-  claw3dGetWsUrl: (): Promise<string> =>
-    ipcRenderer.invoke("claw3d-get-ws-url"),
-  claw3dSetWsUrl: (url: string): Promise<boolean> =>
-    ipcRenderer.invoke("claw3d-set-ws-url", url),
-
-  claw3dStartAll: (
-    profile?: string,
-  ): Promise<{ success: boolean; error?: string }> =>
-    ipcRenderer.invoke("claw3d-start-all", profile),
-  claw3dStopAll: (): Promise<boolean> => ipcRenderer.invoke("claw3d-stop-all"),
-  claw3dGetLogs: (): Promise<string> => ipcRenderer.invoke("claw3d-get-logs"),
-
-  claw3dStartDev: (): Promise<boolean> =>
-    ipcRenderer.invoke("claw3d-start-dev"),
-  claw3dStopDev: (): Promise<boolean> => ipcRenderer.invoke("claw3d-stop-dev"),
-  claw3dStartAdapter: (): Promise<boolean> =>
-    ipcRenderer.invoke("claw3d-start-adapter"),
-  claw3dStopAdapter: (): Promise<boolean> =>
-    ipcRenderer.invoke("claw3d-stop-adapter"),
 
   // Updates
   checkForUpdates: (): Promise<string | null> =>

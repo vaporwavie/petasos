@@ -8,7 +8,6 @@ export default {
   pinned: "Sabitlenenler",
   discover: "Keşfet",
   agents: "Profiller",
-  office: "Ofis",
   models: "Modeller",
   providers: "Sağlayıcılar",
   skills: "Yetenekler",

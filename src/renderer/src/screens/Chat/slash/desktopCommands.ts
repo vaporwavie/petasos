@@ -65,7 +65,6 @@ export const DESKTOP_SLASH_COMMANDS: SlashCommandDefinition[] = [
   ...(
     [
       ["agents", "Open Agents page"],
-      ["office", "Open Office 3D page"],
       ["discover", "Open Discover page"],
       ["providers", "Open Providers page"],
       ["schedules", "Open Schedules page"],

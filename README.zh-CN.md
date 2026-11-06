@@ -76,7 +76,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 <td width="50%" align="center"><b>看板 (Kanban)</b><br/><img width="100%" alt="Kanban" src="previews/kanban.png" /></td>
 </tr>
 <tr>
-<td width="50%" align="center"><b>办公室 (Office)</b><br/><img width="100%" alt="Office" src="previews/office.png" /></td>
 <td width="50%" align="center"><b>设置 (Settings)</b><br/><img width="100%" alt="Settings" src="previews/settings.png" /></td>
 </tr>
 </table>
@@ -97,7 +96,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 - **已保存模型**：跨不同提供商对模型配置进行增删改查。
 - **计划任务**：支持 15 种推送目标的 Cron 任务构建器（分钟、小时、每日、每周、自定义 Cron）。
 - **16 个消息网关**：Telegram, Discord, Slack, WhatsApp, Signal, Matrix/Element, Mattermost, Email (IMAP/SMTP), SMS (Twilio & Vonage), iMessage (BlueBubbles), 钉钉 (DingTalk), 飞书 (Feishu/Lark), 企业微信 (WeCom), 微信 (WeChat iLink Bot), Webhooks 和 Home Assistant。
-- **Hermes 办公室 (Claw3d)**：具有开发服务器和适配器管理功能的可视化 3D 界面。
 - **备份、导入与诊断导出**：可在设置面板中完成完整的数据备份/恢复，并进行系统诊断。
 - **日志查看器**：直接在设置界面中查看网关和代理的运行日志。
 - **自动更新**：通过 `electron-updater` 检查并安装更新。
@@ -131,7 +129,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 | **工具 (Tools)**     | 启用或禁用特定的工具集                                    |
 | **计划 (Schedules)** | 创建并管理定时任务及推送目标                              |
 | **网关 (Gateway)**   | 配置和控制各类消息平台集成                                |
-| **办公室 (Office)**  | Claw3d 可视化界面设置及管理                               |
 | **设置 (Settings)**  | 提供商配置、凭证池、备份/导入、日志查看器、网络设置、主题 |
 
 ## 支持的提供商

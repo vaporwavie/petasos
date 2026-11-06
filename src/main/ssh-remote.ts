@@ -1854,7 +1854,7 @@ async function sshDetectLauncherProfiles(
 // launcher runs against the deployment's real HERMES_HOME and is authoritative;
 // the filesystem scan always assumes ~/.hermes. Prefer the launcher whenever it
 // is present and returned profiles — even when it reports the SAME number of
-// profiles as the scan — so Office/Agents reflect the live runtime instead of
+// profiles as the scan — so Agents reflects the live runtime instead of
 // stale home-directory state. Exported for unit testing the decision in
 // isolation from any live SSH host.
 export function selectSshProfiles(

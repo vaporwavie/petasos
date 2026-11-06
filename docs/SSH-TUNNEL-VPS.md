@@ -295,14 +295,6 @@ says "Remote/SSH support is coming in a follow-up"). All other
 management screens work in SSH tunnel mode; Kanban is the one
 exception. Track upstream for the follow-up PR.
 
-### Office (Claw3D) offers to install Claw3D locally
-
-The Office screen detects Claw3D on the desktop host, not on the VPS.
-If you're already running `hermes-office.service` on the VPS, that
-service is independent of this screen — visit it directly at
-`http://<vps>:3000`. Tighter integration is tracked in
-[#196](https://github.com/fathah/hermes-desktop/issues/196).
-
 ### `Test SSH Connection` succeeds but chat fails with 401 or auth errors
 
 Hermes API may require an API key locally even when bound to

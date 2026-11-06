@@ -98,7 +98,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 <td width="50%" align="center"><b>Kanban</b><br/><img width="100%" alt="Kanban" src="previews/kanban.png" /></td>
 </tr>
 <tr>
-<td width="50%" align="center"><b>Oficina</b><br/><img width="100%" alt="Office" src="previews/office.png" /></td>
 <td width="50%" align="center"><b>Configuración</b><br/><img width="100%" alt="Settings" src="previews/settings.png" /></td>
 </tr>
 </table>
@@ -119,7 +118,6 @@ sudo dnf install ./hermes-desktop-<version>.rpm
 - **Modelos guardados** — gestión CRUD de configuraciones de modelos por proveedor
 - **Tareas programadas** — constructor de cron jobs (minutos, cada hora, diario, semanal, cron personalizado) con 15 destinos de entrega
 - **16 gateways de mensajería** — Telegram, Discord, Slack, WhatsApp, Signal, Matrix, Mattermost, Email (IMAP/SMTP), SMS (Twilio/Vonage), iMessage (BlueBubbles), DingTalk, Feishu/Lark, WeCom, WeChat (iLink Bot), Webhooks, Home Assistant
-- **Hermes Office (Claw3d)** — interfaz visual 3D con servidor de desarrollo y gestión de adaptadores
 - **Backup, importar y diagnóstico** — respaldo/restauración completa y diagnóstico del sistema desde Configuración
 - **Visor de logs** — visualiza logs de gateway y agente directamente desde la pantalla de Configuración
 - **Actualizador automático** — verifica e instala actualizaciones vía electron-updater
@@ -153,7 +151,6 @@ En modo local, las solicitudes de chat van por `http://127.0.0.1:8642` con strea
 | **Herramientas**  | Activa o desactiva conjuntos de herramientas individuales                                          |
 | **Programadas**   | Crea y gestiona cron jobs con destinos de entrega                                                  |
 | **Gateway**       | Configura y controla integraciones de plataformas de mensajería                                    |
-| **Oficina**       | Configuración y gestión de la interfaz visual Claw3d                                               |
 | **Configuración** | Config de proveedor, pools de credenciales, backup/importar, visor de logs, red, tema              |
 
 ## Proveedores soportados

@@ -8,7 +8,6 @@ export default {
   discover: "Jelajahi",
   pinned: "Disematkan",
   agents: "Profil",
-  office: "Office",
   models: "Model",
   providers: "Provider",
   skills: "Skill",

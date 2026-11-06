@@ -8,7 +8,6 @@ export default {
   discover: "发现",
   pinned: "已固定",
   agents: "档案",
-  office: "工作区",
   models: "模型",
   providers: "提供商",
   skills: "技能",

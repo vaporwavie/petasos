@@ -314,8 +314,8 @@ describe("OAuth credential discovery", () => {
 
 describe("checkOpenClawExists", () => {
   it("ignores an empty .openclaw directory (self-created stub)", async () => {
-    // Mirrors the real-world case where hermes-desktop's own Claw3D settings
-    // helper has mkdirSync'd ~/.openclaw/claw3d/ without writing any files.
+    // Mirrors older hermes-desktop builds, which mkdirSync'd ~/.openclaw/claw3d/
+    // without writing any files.
     mkdirSync(join(TEST_DIR, ".openclaw", "claw3d"), { recursive: true });
     const { checkOpenClawExists } = await import("../src/main/installer");
     expect(checkOpenClawExists(TEST_DIR)).toEqual({ found: false, path: null });

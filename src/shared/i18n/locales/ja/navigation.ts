@@ -8,7 +8,6 @@ export default {
   discover: "見つける",
   pinned: "ピン留め",
   agents: "プロファイル",
-  office: "オフィス",
   models: "モデル",
   providers: "プロバイダ",
   skills: "スキル",

@@ -8,7 +8,6 @@ export default {
   discover: "Descubrir",
   pinned: "Fijados",
   agents: "Perfiles",
-  office: "Office",
   models: "Modelos",
   providers: "Proveedores",
   skills: "Habilidades",

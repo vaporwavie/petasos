@@ -24,9 +24,7 @@ import type { DesktopSessionLocalError } from "../shared/session-continuation";
 import type {
   ImportWalletInput,
   ProfileWallet,
-  ProvisionWalletResult,
   WalletMutationResult,
-  WalletPortfolioResult,
   WalletSyncResult,
 } from "../shared/wallets";
 import type { TokenBalancesResponse } from "../shared/tokens";
@@ -847,11 +845,6 @@ interface HermesAPI {
     name: string,
   ) => Promise<void>;
   syncWallets: (profile?: string) => Promise<WalletSyncResult>;
-  getWalletPortfolio: (
-    profile: string | undefined,
-    walletId: string,
-  ) => Promise<WalletPortfolioResult>;
-  provisionCloudWallet: (profile?: string) => Promise<ProvisionWalletResult>;
   createWallet: (
     profile?: string,
     name?: string,
@@ -1118,44 +1111,6 @@ interface HermesAPI {
   removeModelDefinition: (model: string) => Promise<boolean>;
   onModelLibraryChanged: (callback: () => void) => () => void;
   onCustomProvidersChanged: (callback: () => void) => () => void;
-
-  // Claw3D
-  claw3dStatus: () => Promise<{
-    cloned: boolean;
-    installed: boolean;
-    devServerRunning: boolean;
-    adapterRunning: boolean;
-    port: number;
-    portInUse: boolean;
-    wsUrl: string;
-    running: boolean;
-    error: string;
-    remoteUrl?: string | null;
-    remoteSource?: "ssh" | null;
-  }>;
-  claw3dSetup: () => Promise<{ success: boolean; error?: string }>;
-  onClaw3dSetupProgress: (
-    callback: (progress: {
-      step: number;
-      totalSteps: number;
-      title: string;
-      detail: string;
-      log: string;
-    }) => void,
-  ) => () => void;
-  claw3dGetPort: () => Promise<number>;
-  claw3dSetPort: (port: number) => Promise<boolean>;
-  claw3dGetWsUrl: () => Promise<string>;
-  claw3dSetWsUrl: (url: string) => Promise<boolean>;
-  claw3dStartAll: (
-    profile?: string,
-  ) => Promise<{ success: boolean; error?: string }>;
-  claw3dStopAll: () => Promise<boolean>;
-  claw3dGetLogs: () => Promise<string>;
-  claw3dStartDev: () => Promise<boolean>;
-  claw3dStopDev: () => Promise<boolean>;
-  claw3dStartAdapter: () => Promise<boolean>;
-  claw3dStopAdapter: () => Promise<boolean>;
 
   // Updates
   checkForUpdates: () => Promise<string | null>;

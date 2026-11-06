@@ -108,7 +108,6 @@ vi.mock("../Skills/Skills", () => ({ default: () => null }));
 vi.mock("../Memory/Memory", () => ({ default: () => null }));
 vi.mock("../Tools/Tools", () => ({ default: () => null }));
 vi.mock("../Gateway/Gateway", () => ({ default: () => null }));
-vi.mock("../Office/Office", () => ({ default: () => null }));
 vi.mock("../Providers/Providers", () => ({ default: () => null }));
 vi.mock("../Providers/RemoteProviders", () => ({ default: () => null }));
 vi.mock("../Schedules/Schedules", () => ({ default: () => null }));

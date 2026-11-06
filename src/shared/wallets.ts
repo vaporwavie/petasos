@@ -59,32 +59,6 @@ export interface WalletSyncResult {
   error?: string;
 }
 
-/** One token row of a cloud wallet's portfolio (backend-normalised shape). */
-export interface PortfolioTokenView {
-  symbol: string;
-  name: string;
-  /** Human-readable amount (backend normalises decimals). */
-  balance: number;
-  balanceUsd: number;
-}
-
-/** Result of `GET /api/wallets/:id/portfolio` for a profile's cloud wallet. */
-export interface WalletPortfolioResult {
-  /** `foreign`: the profile's cloud link belongs to a different account. */
-  status: "ok" | "signed-out" | "unlinked" | "foreign" | "error";
-  totalUsd?: number;
-  tokens?: PortfolioTokenView[];
-  error?: string;
-}
-
-/** Result of provisioning a backend (Bankr) wallet for a profile's agent. */
-export interface ProvisionWalletResult {
-  /** `exists`: the agent already has a provisioned wallet (backend 409). */
-  status: "ok" | "exists" | "signed-out" | "unlinked" | "foreign" | "error";
-  wallet?: WalletView;
-  error?: string;
-}
-
 /** Backend `serializeWallet` shape (the fields the desktop consumes). */
 export interface CloudWalletRaw {
   id: string;

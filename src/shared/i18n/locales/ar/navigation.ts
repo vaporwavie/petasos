@@ -4,7 +4,6 @@ export default {
   sessions: "الجلسات",
   discover: "اكتشف",
   agents: "الملفات الشخصية",
-  office: "المكتب",
   models: "النماذج",
   providers: "المزوّدون",
   projects: "المشاريع",

@@ -191,24 +191,6 @@ import {
   isSshTunnelActive,
 } from "../ssh-tunnel";
 import {
-  getClaw3dStatus,
-  setupClaw3d,
-  startDevServer,
-  stopDevServer,
-  startAdapter,
-  stopAdapter,
-  startAll as startClaw3dAll,
-  stopAll as stopClaw3d,
-  getClaw3dLogs,
-  setClaw3dPort,
-  getClaw3dPort,
-  setClaw3dWsUrl,
-  getClaw3dWsUrl,
-  waitForClaw3dReady,
-  type Claw3dSetupProgress,
-} from "../claw3d";
-import { startOfficeStack } from "../office-start";
-import {
   readEnv,
   setEnvValue,
   getConfigValue,
@@ -353,7 +335,6 @@ import {
   upsertCustomProvider,
 } from "../providers-store";
 import { syncWalletsForProfile } from "../wallet-sync";
-import { getWalletPortfolio, provisionAgentWallet } from "../wallet-actions";
 import { getTokenBalances } from "../wallet-balances";
 import type { ImportWalletInput } from "../../shared/wallets";
 import {
@@ -2096,7 +2077,7 @@ export function registerIpcHandlers(context: IpcContext): void {
               safeSend("chat-clarify-request", req);
             },
             onApproval: (req) => {
-              // Office one-chat omits runId and has no approval UI.
+              // Callers without a runId have no approval UI.
               if (!runId) return false;
               if (
                 !bindPendingApproval(req.requestId, {
@@ -3015,16 +2996,6 @@ export function registerIpcHandlers(context: IpcContext): void {
   ipcMain.handle("wallet-sync", (_event, profile?: string) =>
     syncWalletsForProfile(profile),
   );
-  // Backend-driven wallet ops used by the Office's space representatives
-  // (bank tellers): balances and provisioning both live server-side.
-  ipcMain.handle(
-    "wallet-portfolio",
-    (_event, profile: string | undefined, walletId: string) =>
-      getWalletPortfolio(profile, walletId),
-  );
-  ipcMain.handle("wallet-provision", (_event, profile?: string) =>
-    provisionAgentWallet(profile),
-  );
   ipcMain.handle("get-token-balances", (_event, address: string) =>
     getTokenBalances(address),
   );
@@ -3594,64 +3565,6 @@ export function registerIpcHandlers(context: IpcContext): void {
     const removed = removeModelDefinition(model);
     if (removed) notifyModelLibraryChanged();
     return removed;
-  });
-
-  // Claw3D
-  ipcMain.handle("claw3d-status", () => getClaw3dStatus());
-
-  ipcMain.handle("claw3d-setup", async (event) => {
-    try {
-      await setupClaw3d((progress: Claw3dSetupProgress) => {
-        event.sender.send("claw3d-setup-progress", progress);
-      });
-      return { success: true };
-    } catch (err) {
-      return { success: false, error: (err as Error).message };
-    }
-  });
-
-  ipcMain.handle("claw3d-get-port", () => getClaw3dPort());
-  ipcMain.handle("claw3d-set-port", (_event, port: number) => {
-    setClaw3dPort(port);
-    return true;
-  });
-  ipcMain.handle("claw3d-get-ws-url", () => getClaw3dWsUrl());
-  ipcMain.handle("claw3d-set-ws-url", (_event, url: string) => {
-    setClaw3dWsUrl(url);
-    return true;
-  });
-
-  ipcMain.handle("claw3d-start-all", (_event, profile?: string) =>
-    startOfficeStack(profile, {
-      getConnectionConfig,
-      isGatewayRunning,
-      startGateway,
-      sshGatewayStatus,
-      sshStartGateway,
-      startSshTunnel,
-      stopSshTunnel,
-      sshReadRemoteApiKey,
-      setSshRemoteApiKey,
-      startClaw3dAll,
-      stopClaw3dAll: stopClaw3d,
-      waitForClaw3dReady,
-    }),
-  );
-  ipcMain.handle("claw3d-stop-all", () => {
-    stopClaw3d();
-    return true;
-  });
-  ipcMain.handle("claw3d-get-logs", () => getClaw3dLogs());
-
-  ipcMain.handle("claw3d-start-dev", () => startDevServer());
-  ipcMain.handle("claw3d-stop-dev", () => {
-    stopDevServer();
-    return true;
-  });
-  ipcMain.handle("claw3d-start-adapter", () => startAdapter());
-  ipcMain.handle("claw3d-stop-adapter", () => {
-    stopAdapter();
-    return true;
   });
 
   // Cron Jobs

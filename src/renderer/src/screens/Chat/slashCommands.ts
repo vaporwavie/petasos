@@ -144,11 +144,6 @@ export const SLASH_COMMANDS: SlashCommand[] = [
     category: "info",
   },
   {
-    name: "/office",
-    description: "Open Office 3D page",
-    category: "info",
-  },
-  {
     name: "/discover",
     description: "Open Discover page",
     category: "info",

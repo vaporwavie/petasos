@@ -8,7 +8,6 @@ export default {
   discover: "探索",
   pinned: "已釘選",
   agents: "檔案",
-  office: "工作區",
   models: "模型",
   providers: "供應商",
   skills: "技能",
