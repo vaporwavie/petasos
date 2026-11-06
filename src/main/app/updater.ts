@@ -49,7 +49,9 @@ export function setupUpdater({ getMainWindow }: UpdaterDeps): void {
   });
 
   const isPortableBuild = !!process.env.PORTABLE_EXECUTABLE_DIR;
-  if (!app.isPackaged || isPortableBuild) {
+  // Petasos publishes no releases, and upstream's feed would replace the fork with Hermes One.
+  const updateFeedEnabled = process.env.PETASOS_UPDATE_FEED === "1";
+  if (!updateFeedEnabled || !app.isPackaged || isPortableBuild) {
     autoUpdaterInstance = null;
     ipcMain.handle("check-for-updates", async () => null);
     ipcMain.handle("download-update", () => true);

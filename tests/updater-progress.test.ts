@@ -29,7 +29,7 @@ function updaterFixture(): {
     const exports: Record<string, unknown> = {};
     runInNewContext(output, {
       exports,
-      process: { env: {} },
+      process: { env: { PETASOS_UPDATE_FEED: "1" } },
       setTimeout: vi.fn(),
       require: (name: string) => {
         if (name === "electron")
