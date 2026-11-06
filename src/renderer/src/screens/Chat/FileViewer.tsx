@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, memo } from "react";
-import { X, FileCode, ExternalLink } from "lucide-react";
+import { X, FileCode, ExternalLink, File } from "lucide-react";
 import hljs from "highlight.js";
-import "highlight.js/styles/github-dark.css";
 import { useI18n } from "../../components/useI18n";
 
 interface FileViewerProps {
@@ -293,7 +292,7 @@ export const FileViewer = memo(function FileViewer({
             </div>
           ) : isBinaryFile(fileName) ? (
             <div className="file-viewer-binary">
-              <div className="file-viewer-binary-icon">📄</div>
+              <File size={40} strokeWidth={1.5} aria-hidden="true" />
               <div className="file-viewer-binary-text">
                 Binary file cannot be previewed
               </div>

@@ -4142,9 +4142,18 @@ body:has(.shell-vibrant),
 }
 
 .file-viewer-modal {
-  background: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 8px;
+  --syntax-text: #d4d4d4;
+  --syntax-keyword: #569cd6;
+  --syntax-string: #ce9178;
+  --syntax-number: #b5cea8;
+  --syntax-function: #dcdcaa;
+  --syntax-variable: #9cdcfe;
+  --syntax-comment: #6a9955;
+  --syntax-selector: #d7ba7d;
+  --syntax-type: #4ec9b0;
+  background: var(--code-bg);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-md);
   width: 100%;
   max-width: 900px;
   height: 85vh;
@@ -4154,13 +4163,31 @@ body:has(.shell-vibrant),
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
+:is(
+    [data-theme="light"],
+    [data-theme="github-light"],
+    [data-theme="solarized-light"]
+  )
+  .file-viewer-modal {
+  --syntax-text: #24292f;
+  --syntax-keyword: #cf222e;
+  --syntax-string: #0a3069;
+  --syntax-number: #0550ae;
+  --syntax-function: #8250df;
+  --syntax-variable: #953800;
+  --syntax-comment: #6e7781;
+  --syntax-selector: #116329;
+  --syntax-type: #0550ae;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
 .file-viewer-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid #333;
-  background: #252526;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
   flex-shrink: 0;
 }
 
@@ -4172,14 +4199,14 @@ body:has(.shell-vibrant),
 }
 
 .file-viewer-icon {
-  color: #858585;
+  color: var(--text-muted);
   flex-shrink: 0;
 }
 
 .file-viewer-filename {
   font-size: 13px;
   font-weight: 500;
-  color: #cccccc;
+  color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -4188,7 +4215,7 @@ body:has(.shell-vibrant),
 
 .file-viewer-size {
   font-size: 11px;
-  color: #858585;
+  color: var(--text-muted);
   margin-left: 8px;
   font-family: var(--font-mono);
 }
@@ -4200,19 +4227,18 @@ body:has(.shell-vibrant),
 }
 
 .file-viewer-open {
-  opacity: 0.8;
   padding: 6px 10px;
-  color: #cccccc;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 12px;
+  border-radius: var(--radius-sm);
 }
 
 .file-viewer-open:hover {
-  opacity: 1;
-  background: #3c3c3c;
-  border-radius: 4px;
+  color: var(--text-primary);
+  background: var(--bg-hover);
 }
 
 .file-viewer-open-text {
@@ -4221,15 +4247,14 @@ body:has(.shell-vibrant),
 }
 
 .file-viewer-close {
-  opacity: 0.7;
   padding: 6px;
-  color: #cccccc;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
 }
 
 .file-viewer-close:hover {
-  opacity: 1;
-  background: #3c3c3c;
-  border-radius: 4px;
+  color: var(--text-primary);
+  background: var(--bg-hover);
 }
 
 /* Binary file placeholder */
@@ -4240,23 +4265,18 @@ body:has(.shell-vibrant),
   justify-content: center;
   height: 100%;
   gap: 12px;
-  color: #858585;
-}
-
-.file-viewer-binary-icon {
-  font-size: 48px;
-  opacity: 0.5;
+  color: var(--text-muted);
 }
 
 .file-viewer-binary-text {
   font-size: 14px;
   font-weight: 500;
-  color: #cccccc;
+  color: var(--text-primary);
 }
 
 .file-viewer-binary-hint {
   font-size: 12px;
-  color: #858585;
+  color: var(--text-muted);
 }
 
 /* Image viewer styles */
@@ -4266,7 +4286,7 @@ body:has(.shell-vibrant),
   justify-content: center;
   height: 100%;
   padding: 20px;
-  background: #1e1e1e;
+  background: var(--code-bg);
   overflow: auto;
 }
 
@@ -4274,14 +4294,13 @@ body:has(.shell-vibrant),
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border-radius: 4px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-sm);
 }
 
 .file-viewer-content {
   flex: 1;
   overflow: auto;
-  background: #1e1e1e;
+  background: var(--code-bg);
 }
 
 .file-viewer-loading,
@@ -4291,27 +4310,26 @@ body:has(.shell-vibrant),
   justify-content: center;
   height: 100%;
   font-size: 14px;
-  color: #858585;
+  color: var(--text-muted);
 }
 
 .file-viewer-error {
-  color: #f48771;
+  color: var(--error);
 }
 
 .file-viewer-truncated {
   padding: 10px 16px;
-  background: rgba(255, 204, 0, 0.1);
-  border-bottom: 1px solid #333;
+  background: var(--warning-bg);
+  border-bottom: 1px solid var(--border);
   font-size: 12px;
-  color: #cccccc;
+  color: var(--text-primary);
   font-family: var(--font-mono);
 }
 
-/* VS Code-like code viewer with line numbers */
 .file-viewer-code {
   margin: 0;
   padding: 0;
-  background: #1e1e1e;
+  background: var(--code-bg);
   font-family: var(--font-mono);
   font-size: 13px;
   line-height: 1.5;
@@ -4321,122 +4339,117 @@ body:has(.shell-vibrant),
 .file-viewer-code code {
   display: block;
   padding: 16px;
-  padding-left: 16px;
-  background: #1e1e1e;
-  color: #d4d4d4;
+  background: var(--code-bg);
+  color: var(--syntax-text);
   white-space: pre;
   overflow-x: auto;
   tab-size: 2;
 }
 
-/* Custom scrollbar for file viewer */
 .file-viewer-content::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 .file-viewer-content::-webkit-scrollbar-track {
-  background: #1e1e1e;
+  background: var(--code-bg);
 }
 
 .file-viewer-content::-webkit-scrollbar-thumb {
-  background: #424242;
+  background: var(--scrollbar-thumb);
   border-radius: 5px;
 }
 
 .file-viewer-content::-webkit-scrollbar-thumb:hover {
-  background: #4f4f4f;
+  background: var(--scrollbar-hover);
 }
 
-/* Override highlight.js styles for VS Code dark theme look */
 .file-viewer-modal .hljs {
-  background: #1e1e1e;
-  color: #d4d4d4;
+  background: var(--code-bg);
+  color: var(--syntax-text);
 }
 
-/* Keyword - blue */
 .file-viewer-modal .hljs-keyword,
 .file-viewer-modal .hljs-selector-tag,
-.file-viewer-modal .hljs-subst {
-  color: #569cd6;
+.file-viewer-modal .hljs-subst,
+.file-viewer-modal .hljs-tag,
+.file-viewer-modal .hljs-name {
+  color: var(--syntax-keyword);
   font-weight: normal;
 }
 
-/* String - orange/red */
 .file-viewer-modal .hljs-string,
 .file-viewer-modal .hljs-regexp,
 .file-viewer-modal .hljs-addition,
 .file-viewer-modal .hljs-attribute {
-  color: #ce9178;
+  color: var(--syntax-string);
 }
 
-/* Number - light green */
 .file-viewer-modal .hljs-number,
 .file-viewer-modal .hljs-literal {
-  color: #b5cea8;
+  color: var(--syntax-number);
 }
 
-/* Function/method - yellow */
 .file-viewer-modal .hljs-title,
 .file-viewer-modal .hljs-title.class_,
 .file-viewer-modal .hljs-title.function_,
 .file-viewer-modal .hljs-built_in {
-  color: #dcdcaa;
+  color: var(--syntax-function);
 }
 
-/* Variable - light blue */
 .file-viewer-modal .hljs-variable,
 .file-viewer-modal .hljs-template-variable,
-.file-viewer-modal .hljs-params {
-  color: #9cdcfe;
-}
-
-/* Property - light blue */
+.file-viewer-modal .hljs-params,
 .file-viewer-modal .hljs-property,
 .file-viewer-modal .hljs-attr {
-  color: #9cdcfe;
+  color: var(--syntax-variable);
 }
 
-/* Comment - green */
 .file-viewer-modal .hljs-comment,
 .file-viewer-modal .hljs-quote {
-  color: #6a9955;
+  color: var(--syntax-comment);
   font-style: italic;
 }
 
-/* Operator - light */
 .file-viewer-modal .hljs-operator,
 .file-viewer-modal .hljs-punctuation {
-  color: #d4d4d4;
+  color: var(--syntax-text);
 }
 
-/* Tag (HTML/XML) - blue */
-.file-viewer-modal .hljs-tag {
-  color: #569cd6;
-}
-
-/* Tag name - red */
-.file-viewer-modal .hljs-name {
-  color: #569cd6;
-}
-
-/* Tag attribute - light blue */
-.file-viewer-modal .hljs-attr {
-  color: #9cdcfe;
-}
-
-/* CSS property - light blue */
 .file-viewer-modal .hljs-selector-id,
 .file-viewer-modal .hljs-selector-class,
 .file-viewer-modal .hljs-selector-attr,
 .file-viewer-modal .hljs-selector-pseudo {
-  color: #d7ba7d;
+  color: var(--syntax-selector);
 }
 
-/* Type/Class - greenish */
 .file-viewer-modal .hljs-type,
 .file-viewer-modal .hljs-class_ {
-  color: #4ec9b0;
+  color: var(--syntax-type);
+}
+
+.file-viewer-modal .hljs-meta,
+.file-viewer-modal .hljs-symbol,
+.file-viewer-modal .hljs-bullet,
+.file-viewer-modal .hljs-link {
+  color: var(--syntax-number);
+}
+
+.file-viewer-modal .hljs-section {
+  color: var(--syntax-function);
+  font-weight: 600;
+}
+
+.file-viewer-modal .hljs-deletion {
+  color: var(--error);
+}
+
+.file-viewer-modal .hljs-emphasis {
+  font-style: italic;
+}
+
+.file-viewer-modal .hljs-strong {
+  font-weight: 600;
 }
 
 /* Meta - gray */
