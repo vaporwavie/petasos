@@ -1574,7 +1574,7 @@ body:has(.shell-vibrant),
 
 .welcome-remote-error {
   font-size: var(--text-sm);
-  color: var(--error, #ef4444);
+  color: var(--error);
   margin: 0;
 }
 
@@ -2168,7 +2168,7 @@ body:has(.shell-vibrant),
   font-variant-numeric: tabular-nums;
 }
 .status-usage-warn {
-  color: var(--warning, #d9822b);
+  color: var(--warning);
 }
 .status-sep {
   color: var(--text-muted);
@@ -2181,9 +2181,8 @@ body:has(.shell-vibrant),
   flex-shrink: 0;
 }
 .status-dot.online {
-  background: var(--success, #3fb950);
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--success, #3fb950) 22%, transparent);
+  background: var(--success);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 22%, transparent);
 }
 .status-dot.offline {
   background: var(--text-muted);
@@ -3527,7 +3526,7 @@ body:has(.shell-vibrant),
 }
 
 .profile-icon.running {
-  color: var(--success, #22c55e);
+  color: var(--success);
 }
 
 /* Popover menu, anchored above the trigger. */
@@ -4298,7 +4297,8 @@ body:has(.shell-vibrant),
 .file-viewer-modal .hljs-title,
 .file-viewer-modal .hljs-title.class_,
 .file-viewer-modal .hljs-title.function_,
-.file-viewer-modal .hljs-built_in {
+.file-viewer-modal .hljs-built_in,
+.file-viewer-modal .hljs-builtin-name {
   color: var(--syntax-function);
 }
 
@@ -4355,27 +4355,6 @@ body:has(.shell-vibrant),
 
 .file-viewer-modal .hljs-strong {
   font-weight: 600;
-}
-
-/* Meta - gray */
-.file-viewer-modal .hljs-meta {
-  color: #808080;
-}
-
-/* Emphasis - bold */
-.file-viewer-modal .hljs-emphasis {
-  font-style: italic;
-}
-
-/* Strong - bold */
-.file-viewer-modal .hljs-strong {
-  font-weight: bold;
-}
-
-/* Built-in constant */
-.file-viewer-modal .hljs-built_in,
-.file-viewer-modal .hljs-builtin-name {
-  color: #dcdcaa;
 }
 
 /* Clickable file rows in worktree */
@@ -4693,13 +4672,13 @@ body:has(.shell-vibrant),
 
 .chat-fast-active {
   opacity: 1;
-  color: #f59e0b;
-  background: color-mix(in srgb, #f59e0b 14%, transparent);
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 14%, transparent);
 }
 
 .chat-fast-active:hover {
   opacity: 1;
-  background: color-mix(in srgb, #f59e0b 20%, transparent);
+  background: color-mix(in srgb, var(--warning) 20%, transparent);
 }
 
 .chat-fast-popover {
@@ -4762,8 +4741,8 @@ body:has(.shell-vibrant),
    signals "active" the way the toggle button does. */
 .chat-fast-active-popover .chat-fast-popover-icon {
   color: #3a2900;
-  background: #f59e0b;
-  box-shadow: 0 0 0 3px color-mix(in srgb, #f59e0b 20%, transparent);
+  background: var(--warning);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--warning) 20%, transparent);
 }
 
 .chat-fast-popover strong {
@@ -5367,12 +5346,12 @@ body:has(.shell-vibrant),
 
 .chat-diff-add {
   background: rgba(34, 197, 94, 0.12);
-  color: #4ade80;
+  color: var(--success);
 }
 
 .chat-diff-remove {
   background: rgba(239, 68, 68, 0.12);
-  color: #f87171;
+  color: var(--error);
 }
 
 .chat-diff-hunk {
@@ -5404,7 +5383,7 @@ body:has(.shell-vibrant),
 }
 
 .chat-approve:hover {
-  background: #16a34a;
+  background: color-mix(in srgb, var(--success) 85%, #000);
 }
 
 .chat-deny {
@@ -5426,7 +5405,7 @@ body:has(.shell-vibrant),
   margin-left: 42px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent, #2563eb);
+  border-left: 3px solid var(--accent);
   border-radius: var(--radius-md);
   background: var(--bg-elevated);
   display: flex;
@@ -5464,7 +5443,7 @@ body:has(.shell-vibrant),
 }
 
 .chat-clarify-choice:hover {
-  border-color: var(--accent, #2563eb);
+  border-color: var(--accent);
   background: var(--bg-hover);
 }
 
@@ -5494,7 +5473,7 @@ body:has(.shell-vibrant),
 
 .chat-clarify-textarea:focus {
   outline: none;
-  border-color: var(--accent, #2563eb);
+  border-color: var(--accent);
 }
 
 .chat-clarify-send {
@@ -5502,7 +5481,7 @@ body:has(.shell-vibrant),
   padding: 6px 16px;
   border: none;
   border-radius: var(--radius-sm);
-  background: var(--accent, #2563eb);
+  background: var(--accent);
   color: #fff;
   font-size: var(--text-sm);
   font-weight: 500;
@@ -5543,12 +5522,12 @@ body:has(.shell-vibrant),
 
 .chat-clarify-error {
   font-size: var(--text-sm);
-  color: var(--danger, #ef4444);
+  color: var(--error);
   margin-top: 2px;
 }
 
 .chat-approval-card {
-  border-left-color: var(--warning, #d97706);
+  border-left-color: var(--warning);
 }
 
 .chat-approval-heading {
@@ -5576,7 +5555,7 @@ body:has(.shell-vibrant),
 }
 
 .chat-approval-choice--deny {
-  color: var(--danger, #ef4444);
+  color: var(--error);
 }
 
 .chat-approval-confirm {
@@ -5584,7 +5563,7 @@ body:has(.shell-vibrant),
   flex-direction: column;
   gap: 8px;
   padding: 10px 12px;
-  border: 1px solid var(--warning, #d97706);
+  border: 1px solid var(--warning);
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   font-size: var(--text-sm);
@@ -5778,7 +5757,7 @@ body:has(.shell-vibrant),
 
 .chat-queue-icon {
   flex-shrink: 0;
-  color: var(--accent, #8b7cf6);
+  color: var(--accent);
 }
 
 .chat-queue-single {
@@ -5894,7 +5873,7 @@ body:has(.shell-vibrant),
 
 .subagent-section-icon {
   flex-shrink: 0;
-  color: var(--accent-text, #006acd);
+  color: var(--accent-text);
 }
 
 .subagent-list {
@@ -5970,12 +5949,12 @@ body:has(.shell-vibrant),
 
 .subagent-icon-completed {
   flex-shrink: 0;
-  color: var(--success, #22c55e);
+  color: var(--success);
 }
 
 .subagent-icon-failed {
   flex-shrink: 0;
-  color: var(--error, #ef4444);
+  color: var(--error);
 }
 
 /* CSS-only ring spinner: costs no JS frame budget per row. */
@@ -5984,7 +5963,7 @@ body:has(.shell-vibrant),
   width: 13px;
   height: 13px;
   border: 2px solid var(--border-bright, rgba(255, 255, 255, 0.1));
-  border-top-color: var(--accent-text, #006acd);
+  border-top-color: var(--accent-text);
   border-radius: 50%;
   animation: subagent-spin 0.8s linear infinite;
 }
@@ -6033,7 +6012,7 @@ body:has(.shell-vibrant),
 }
 
 .subagent-stream-error {
-  color: var(--error, #ef4444);
+  color: var(--error);
 }
 
 .subagent-controls {
@@ -6217,7 +6196,7 @@ body:has(.shell-vibrant),
 }
 
 .chat-stop-btn:hover {
-  background: #dc2626;
+  background: color-mix(in srgb, var(--error) 85%, #000);
 }
 
 .chat-btw-btn {
@@ -6301,7 +6280,7 @@ body:has(.shell-vibrant),
 
 /* Recording: red, gently pulsing so it's clearly "live". */
 .chat-mic-btn--recording {
-  color: var(--danger, #ef4444);
+  color: var(--error);
   animation: chatMicPulse 1.2s ease-in-out infinite;
 }
 
@@ -6337,7 +6316,7 @@ body:has(.shell-vibrant),
 }
 
 .chat-ctx-gauge-fill {
-  stroke: var(--accent, #4ade80);
+  stroke: var(--accent);
   transition: stroke-dasharray var(--transition);
 }
 
@@ -6357,7 +6336,7 @@ body:has(.shell-vibrant),
   min-width: 220px;
   padding: 10px 12px;
   border-radius: var(--radius-md);
-  background: var(--bg-elevated, #1c1c22);
+  background: var(--bg-elevated);
   border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   color: var(--text-secondary);
@@ -6555,11 +6534,11 @@ body:has(.shell-vibrant),
 }
 
 .diagnose-issue-error {
-  border-left-color: var(--error, #c0392b);
+  border-left-color: var(--error);
 }
 
 .diagnose-issue-warning {
-  border-left-color: var(--warning, #d6a700);
+  border-left-color: var(--warning);
 }
 
 .diagnose-issue-info {
@@ -6635,11 +6614,11 @@ body:has(.shell-vibrant),
 }
 
 .diag-icon-error {
-  color: var(--error, #c0392b);
+  color: var(--error);
 }
 
 .diag-icon-warning {
-  color: var(--warning, #d6a700);
+  color: var(--warning);
 }
 
 .diag-icon-info,
@@ -7060,13 +7039,13 @@ body:has(.shell-vibrant),
 }
 
 .chat-history--reasoning {
-  border-left: 3px solid var(--accent, #8b7cf6);
+  border-left: 3px solid var(--accent);
 }
 .chat-history--tool-call {
   border-left: 3px solid var(--info, #4aa8ff);
 }
 .chat-history--tool-result {
-  border-left: 3px solid var(--success, #4ac38a);
+  border-left: 3px solid var(--success);
 }
 
 .chat-history-header {
@@ -7394,10 +7373,10 @@ body:has(.shell-vibrant),
   background: var(--info, #4aa8ff);
 }
 .chat-tool-item-dot--result {
-  background: var(--success, #4ac38a);
+  background: var(--success);
 }
 .chat-tool-item-dot--failed {
-  background: var(--danger, #e5544b);
+  background: var(--error);
 }
 
 .chat-tool-item-kind {
@@ -7433,7 +7412,7 @@ body:has(.shell-vibrant),
 }
 
 .chat-tool-item-glyph--failed {
-  color: var(--danger, #ef4444);
+  color: var(--error);
 }
 
 .chat-tool-item-detail {
@@ -8385,7 +8364,7 @@ body:has(.shell-vibrant),
   transition: background var(--transition);
 }
 .settings-key-add:hover {
-  background: color-mix(in srgb, var(--accent, #4c8dff) 14%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 .settings-key-input {
   width: min(280px, 42vw);
@@ -8456,11 +8435,11 @@ body:has(.shell-vibrant),
 }
 
 .settings-transport-status--ok span:first-child {
-  color: var(--success, #22c55e);
+  color: var(--success);
 }
 
 .settings-transport-status--warn span:first-child {
-  color: var(--warning, #f59e0b);
+  color: var(--warning);
 }
 
 .ssh-docker-container-list {
@@ -8732,7 +8711,7 @@ body:has(.shell-vibrant),
   white-space: nowrap;
 }
 .provider-remove-btn {
-  color: var(--danger, #c0392b);
+  color: var(--error);
   margin-right: auto;
 }
 
@@ -9115,7 +9094,7 @@ body:has(.shell-vibrant),
   flex-shrink: 0;
 }
 .provider-key-status-ok {
-  color: var(--success, #22c55e);
+  color: var(--success);
 }
 .provider-key-status-loading,
 .provider-key-status-muted {
@@ -9675,8 +9654,8 @@ body:has(.shell-vibrant),
 }
 
 .settings-api-key-banner {
-  background: var(--warning-bg, #fff8e1);
-  border: 1px solid var(--warning-border, #f9a825);
+  background: var(--warning-bg);
+  border: 1px solid var(--warning);
   border-radius: var(--radius-lg);
   padding: 14px 16px;
   margin-bottom: 16px;
@@ -11464,7 +11443,7 @@ body:has(.shell-vibrant),
   min-width: 0;
 }
 .pet-settings-error {
-  color: var(--error, #ef4444);
+  color: var(--error);
   font-size: var(--text-sm);
 }
 .pet-settings-controls {
@@ -11729,9 +11708,9 @@ body:has(.shell-vibrant),
   border-radius: 999px;
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--accent, #4c8dff);
-  background: color-mix(in srgb, var(--accent, #4c8dff) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent, #4c8dff) 32%, transparent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
 }
 
 /* Inside the modal the section markup no longer needs the standalone-screen
@@ -11805,8 +11784,8 @@ body:has(.shell-vibrant),
 }
 
 .settings-card-badge.is-update {
-  color: var(--accent, #4c8dff);
-  background: color-mix(in srgb, var(--accent, #4c8dff) 16%, transparent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
   border-color: transparent;
 }
 
@@ -12023,8 +12002,8 @@ body:has(.shell-vibrant),
 }
 
 .settings-link.is-primary {
-  border-color: color-mix(in srgb, var(--accent, #4c8dff) 45%, transparent);
-  background: color-mix(in srgb, var(--accent, #4c8dff) 12%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
 .settings-link-icon {
@@ -12196,7 +12175,7 @@ body:has(.shell-vibrant),
 }
 
 .profile-sync-note-warn {
-  color: var(--danger, #ef4444);
+  color: var(--error);
 }
 
 .profile-sync-warnings {
@@ -13178,7 +13157,7 @@ body:has(.shell-vibrant),
 .sessions-card-delete:hover,
 .sessions-card-delete:focus-visible {
   background: var(--bg-tertiary);
-  color: var(--danger, #e06c75);
+  color: var(--error);
   opacity: 1;
 }
 
@@ -14058,7 +14037,7 @@ body:has(.shell-vibrant),
   margin-left: auto;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--success, #22c55e);
+  color: var(--success);
 }
 
 /* Skill detail modal (markdown preview + remove). */
@@ -15488,7 +15467,7 @@ body:has(.shell-vibrant),
 }
 .mcp-transport.is-http {
   color: var(--accent-text, var(--accent));
-  background: color-mix(in srgb, var(--accent, #4c8dff) 16%, transparent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
 }
 .mcp-cmd {
   display: block;
@@ -15522,10 +15501,10 @@ body:has(.shell-vibrant),
   background: var(--success);
 }
 .mcp-status.is-err {
-  color: var(--warning, #f59e0b);
+  color: var(--warning);
 }
 .mcp-status.is-err .mcp-dot {
-  background: var(--warning, #f59e0b);
+  background: var(--warning);
 }
 .mcp-cell-controls {
   display: flex;
