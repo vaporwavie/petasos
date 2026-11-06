@@ -1,6 +1,6 @@
 # Theme tokens
 
-Every renderer color, radius and font size comes from CSS custom properties in `main.css`, so the 13 themes and the squared-corners setting reach every screen.
+Every renderer color, radius and font size comes from CSS custom properties in `main.css`, so the 12 themes and the squared-corners setting reach every screen.
 
 ## Default dark palette
 
