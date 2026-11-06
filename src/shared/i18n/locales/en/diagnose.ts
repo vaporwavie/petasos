@@ -23,6 +23,9 @@ export default {
     placeholder: "sk-… or any secret",
     autoGenerate: "Auto-generate",
     hint: "You can paste your own key or generate a random UUID.",
+    restartTitle: "Restart the gateway",
+    restartDescription:
+      "The key is saved. Your gateway runs as a background service, so it keeps running without a key until you restart it. Run this in a terminal:",
   },
   fix: {
     apply: "Apply fix",

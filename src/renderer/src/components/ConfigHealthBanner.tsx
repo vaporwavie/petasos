@@ -54,6 +54,11 @@ function isReportForProfile(
   return !report.profile || report.profile === expected;
 }
 
+function ipcErrorMessage(error: unknown): string {
+  const raw = error instanceof Error ? error.message : String(error);
+  return raw.replace(/^Error invoking remote method '[^']+': (Error: )?/, "");
+}
+
 function generateUUID(): string {
   if (typeof crypto !== "undefined" && crypto.randomUUID) {
     return crypto.randomUUID();
@@ -77,6 +82,8 @@ export function ConfigHealthBanner({
   const [showModal, setShowModal] = useState(false);
   const [apiKeyValue, setApiKeyValue] = useState("");
   const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
+  const [needsRestart, setNeedsRestart] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -111,6 +118,10 @@ export function ConfigHealthBanner({
       );
     };
   }, [profile]);
+
+  if (needsRestart) {
+    return <RestartNotice onClose={() => setNeedsRestart(false)} />;
+  }
 
   if (!report || report.issues.length === 0) return null;
 
@@ -163,21 +174,25 @@ export function ConfigHealthBanner({
   async function handleSaveApiKey(): Promise<void> {
     if (!apiKeyValue.trim()) return;
     setSaving(true);
+    setSaveError("");
     try {
       await window.hermesAPI.setEnv(
         "API_SERVER_KEY",
         apiKeyValue.trim(),
         profile,
       );
-      // Re-run the health check so the banner disappears.
+      // The app can't restart a service-owned gateway, so it keeps running keyless until the user does.
+      const externallyManaged =
+        await window.hermesAPI.isGatewayExternallyManaged(profile);
       const r = (await window.hermesAPI.rerunConfigHealth(profile)) as
         | (Report & { ranAt: number })
         | null;
       setReport(r);
       setShowModal(false);
       setApiKeyValue("");
-    } catch {
-      // Silently fail; the user can retry.
+      setNeedsRestart(externallyManaged);
+    } catch (error) {
+      setSaveError(ipcErrorMessage(error));
     } finally {
       setSaving(false);
     }
@@ -200,7 +215,10 @@ export function ConfigHealthBanner({
             <button
               className="config-health-banner-link"
               type="button"
-              onClick={() => setShowModal(true)}
+              onClick={() => {
+                setSaveError("");
+                setShowModal(true);
+              }}
             >
               {t("diagnose.apiKeyBanner.setNow")}
             </button>
@@ -286,6 +304,11 @@ export function ConfigHealthBanner({
                   {t("diagnose.apiKeyModal.hint")}
                 </span>
               </div>
+              {saveError && (
+                <div role="alert" className="tools-error">
+                  {saveError}
+                </div>
+              )}
             </div>
             <div className="models-modal-footer">
               <button
@@ -308,6 +331,56 @@ export function ConfigHealthBanner({
         </div>
       )}
     </>
+  );
+}
+
+function RestartNotice({
+  onClose,
+}: {
+  onClose: () => void;
+}): React.JSX.Element {
+  const { t } = useI18n();
+  return (
+    <div className="models-modal-overlay" onClick={onClose}>
+      <div
+        className="models-modal"
+        role="dialog"
+        aria-labelledby="api-key-restart-title"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="models-modal-header">
+          <h2 id="api-key-restart-title" className="models-modal-title">
+            {t("diagnose.apiKeyModal.restartTitle")}
+          </h2>
+          <button
+            className="btn-ghost"
+            type="button"
+            onClick={onClose}
+            aria-label={t("common.close")}
+          >
+            <X size={18} />
+          </button>
+        </div>
+        <div className="models-modal-body">
+          <p
+            style={{ fontSize: 13, color: "var(--text-secondary)", margin: 0 }}
+          >
+            {t("diagnose.apiKeyModal.restartDescription")}
+          </p>
+          <code>hermes gateway restart</code>
+        </div>
+        <div className="models-modal-footer">
+          <button
+            className="btn btn-primary btn-sm"
+            type="button"
+            onClick={onClose}
+            autoFocus
+          >
+            {t("common.done")}
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 

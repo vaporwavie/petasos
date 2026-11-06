@@ -425,6 +425,8 @@ const hermesAPI = {
 
   // Connection mode (local / remote / ssh)
   isRemoteMode: (): Promise<boolean> => ipcRenderer.invoke("is-remote-mode"),
+  isGatewayExternallyManaged: (profile?: string): Promise<boolean> =>
+    ipcRenderer.invoke("is-gateway-externally-managed", profile),
   isRemoteOnlyMode: (): Promise<boolean> =>
     ipcRenderer.invoke("is-remote-only-mode"),
   getConnectionConfig: (

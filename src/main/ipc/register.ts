@@ -145,6 +145,7 @@ import {
   startGatewayDetailed,
   stopGateway,
   assertLocalGatewayKeyMutationAllowed,
+  isExternallyManagedMultiplexGateway,
   isGatewayRunning,
   testRemoteConnection,
   restartGateway,
@@ -1557,6 +1558,9 @@ export function registerIpcHandlers(context: IpcContext): void {
 
   // Connection mode (local / remote / ssh)
   ipcMain.handle("is-remote-mode", () => isRemoteMode());
+  ipcMain.handle("is-gateway-externally-managed", (_event, profile?: string) =>
+    isExternallyManagedMultiplexGateway(profile),
+  );
   ipcMain.handle("is-remote-only-mode", () => isRemoteOnlyMode());
   ipcMain.handle("get-connection-config", (_event, connectionId?: unknown) =>
     getPublicConnectionConfig(connectionId),
