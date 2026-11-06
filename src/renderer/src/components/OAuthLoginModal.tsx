@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { X } from "../assets/icons";
+import { Check, X } from "../assets/icons";
 import { useI18n } from "./useI18n";
 
 interface OAuthLoginModalProps {
@@ -96,12 +96,14 @@ function OAuthLoginModal({
           )}
           {status === "success" && (
             <div className="oauth-login-result oauth-login-result-success">
-              ✓&nbsp;{t("providers.oauth.successHint")}
+              <Check size={15} aria-hidden="true" />
+              <span>{t("providers.oauth.successHint")}</span>
             </div>
           )}
           {status === "error" && (
             <div className="oauth-login-result oauth-login-result-error">
-              ✗&nbsp;{error}
+              <X size={15} aria-hidden="true" />
+              <span>{error}</span>
             </div>
           )}
           {log && (

@@ -1852,7 +1852,6 @@ body:has(.shell-vibrant),
 .setup-provider-card:hover {
   border-color: var(--border-bright);
   background: var(--bg-tertiary);
-  transform: translateY(-1px);
 }
 
 .setup-provider-card.selected {
@@ -6201,12 +6200,15 @@ body:has(.shell-vibrant),
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 16px;
-  transition: background var(--transition);
+  color: var(--text-secondary);
+  transition:
+    background var(--transition),
+    color var(--transition);
 }
 
 .chat-btw-btn:hover {
   background: var(--bg-active);
+  color: var(--text-primary);
 }
 
 /* ── Attachments ────────────────────────────────────── */
@@ -6773,12 +6775,11 @@ body:has(.shell-vibrant),
 
 .chat-media-loading,
 .chat-media-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
-  color: var(--text-secondary);
-}
-
-.chat-media-error {
-  color: var(--warning, #d08770);
+  color: var(--warning);
 }
 
 .chat-media-file {
@@ -9251,7 +9252,7 @@ body:has(.shell-vibrant),
   font-size: 16px;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+  background: var(--accent);
 }
 
 .hermes-account-who {
@@ -9472,11 +9473,19 @@ body:has(.shell-vibrant),
 /* Prominent outcome banner shown when the sign-in finishes — the raw
    CLI log below stays append-only, so the result needs to stand out. */
 .oauth-login-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
   font-size: 13px;
   font-weight: 600;
   padding: 10px 12px;
   border-radius: var(--radius-md);
   margin: 0 0 10px;
+}
+
+.oauth-login-result svg {
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .oauth-login-result-success {
@@ -13863,7 +13872,6 @@ body:has(.shell-vibrant),
 .discover-card--clickable:hover {
   border-color: var(--border-bright);
   background: var(--bg-tertiary);
-  transform: translateY(-1px);
 }
 
 .discover-card-head {

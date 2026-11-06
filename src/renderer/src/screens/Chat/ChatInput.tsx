@@ -8,7 +8,14 @@ import {
   forwardRef,
   useImperativeHandle,
 } from "react";
-import { Square as Stop, Search, Paperclip, Mic, ArrowUp } from "lucide-react";
+import {
+  Square as Stop,
+  Search,
+  Paperclip,
+  Mic,
+  ArrowUp,
+  MessageCircleQuestionMark,
+} from "lucide-react";
 import { isImeComposing } from "./keyboard";
 import { useI18n } from "../../components/useI18n";
 import { useChatPreferences } from "../../components/ChatPreferencesProvider";
@@ -836,8 +843,9 @@ export const ChatInput = forwardRef<ChatInputHandle, ChatInputProps>(
                     onClick={handleQuickAsk}
                     disabled={submissionPending}
                     title={t("chat.quickAskTitle")}
+                    aria-label={t("chat.quickAskTitle")}
                   >
-                    💭
+                    <MessageCircleQuestionMark size={18} />
                   </button>
                 )}
                 <button

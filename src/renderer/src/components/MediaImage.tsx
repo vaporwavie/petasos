@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { Download, X } from "lucide-react";
+import { Download, TriangleAlert, X } from "lucide-react";
 import { useLightboxClose } from "../hooks/useLightboxClose";
 import type { MediaToken } from "../screens/Chat/mediaUtils";
 import { useI18n } from "./useI18n";
@@ -68,7 +68,10 @@ export function MediaImage({
 
   if (failed) {
     return (
-      <span className="chat-media-error">⚠ Could not load {token.name}</span>
+      <span className="chat-media-error">
+        <TriangleAlert size={14} aria-hidden="true" />
+        Could not load {token.name}
+      </span>
     );
   }
 
