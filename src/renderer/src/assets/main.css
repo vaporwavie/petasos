@@ -7,20 +7,20 @@
 
 /* ----- Dark Theme (default) ----- */
 [data-theme="dark"] {
-  --bg-primary: #212121;
-  --bg-secondary: #171717;
-  --bg-tertiary: #2f2f2f;
-  --bg-elevated: #303030;
-  --bg-hover: #3a3a3a;
-  --bg-active: #424242;
+  --bg-primary: #1e2126;
+  --bg-secondary: #14171c;
+  --bg-tertiary: #2b3035;
+  --bg-elevated: #2c3136;
+  --bg-hover: #363b40;
+  --bg-active: #3e4348;
   --accent: #003f7a;
   --accent-hover: #0055a4;
   --accent-subtle: rgba(0, 63, 122, 0.15);
   --accent-text: #006acd;
   --primary-yellow: #f5c518;
-  --text-primary: #ececec;
-  --text-secondary: #b4b4b4;
-  --text-muted: #8e8e8e;
+  --text-primary: #eaecef;
+  --text-secondary: #b1b5b9;
+  --text-muted: #8a8f94;
   --border: rgba(255, 255, 255, 0.06);
   --border-bright: rgba(255, 255, 255, 0.1);
   --border-focus: #003f7a;
@@ -32,11 +32,11 @@
   --warning-bg: rgba(245, 158, 11, 0.1);
   --user-bubble: #003f7a;
   --user-bubble-text: #ffffff;
-  --agent-bubble: #2f2f2f;
-  --agent-bubble-text: #ececec;
-  --code-bg: #1a1a1a;
-  --scrollbar-thumb: #424242;
-  --scrollbar-hover: #555555;
+  --agent-bubble: #2b3035;
+  --agent-bubble-text: #eaecef;
+  --code-bg: #171a1f;
+  --scrollbar-thumb: #3e4348;
+  --scrollbar-hover: #51565b;
   --selection: rgba(0, 100, 180, 0.7);
 }
 
