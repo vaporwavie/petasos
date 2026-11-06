@@ -50,6 +50,8 @@ Menu, updater, and context-menu behavior live in focused modules.
 
 [[src/main/app/menu.ts#buildMenu]] owns the application menu, [[src/main/app/updater.ts#setupUpdater]] owns update IPC and electron-updater events, and [[src/main/app/context-menu.ts#showChatContextMenu]] owns the chat right-click menu.
 
+[[src/main/app/zoom.ts#fitZoomToWindow]] zooms the main window up to 1.25 while keeping the page at least 900 CSS px wide, so a narrow tiled window falls back toward 1.0 instead of squeezing the layout. Resizing leaves a manual Ctrl+=/Ctrl+- zoom alone; the View menu's Actual Size (Ctrl+0) returns to the fitted factor.
+
 Release builds keep a Help-menu Developer Tools toggle as a production diagnostics escape hatch without changing renderer sandbox or Node isolation.
 
 ## IPC Registry

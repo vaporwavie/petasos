@@ -1,5 +1,6 @@
 import { app, type BrowserWindow, Menu } from "electron";
 import { is } from "@electron-toolkit/utils";
+import { resetZoomToFit } from "./zoom";
 
 interface MenuDeps {
   getMainWindow: () => BrowserWindow | null;
@@ -59,7 +60,14 @@ export function buildMenu({ getMainWindow, openExternalUrl }: MenuDeps): void {
     {
       label: "View",
       submenu: [
-        { role: "resetZoom" },
+        {
+          label: "Actual Size",
+          accelerator: "CommandOrControl+0",
+          click: () => {
+            const win = getMainWindow();
+            if (win) resetZoomToFit(win);
+          },
+        },
         { role: "zoomIn" },
         { role: "zoomOut" },
         { type: "separator" },

@@ -20,6 +20,7 @@ import { registerIpcHandlers } from "../ipc/register";
 import { setGatewayPromptParent } from "../gatewayPrompt";
 import { showChatContextMenu } from "./context-menu";
 import { buildMenu } from "./menu";
+import { fitZoomToWindow } from "./zoom";
 import { setupUpdater } from "./updater";
 
 const APP_NAME = process.env.HERMES_DESKTOP_APP_NAME?.trim() || "Petasos";
@@ -205,7 +206,14 @@ function createWindow(): void {
     },
   });
 
-  mainWindow.on("ready-to-show", () => mainWindow?.show());
+  mainWindow.on("ready-to-show", () => {
+    if (!mainWindow) return;
+    fitZoomToWindow(mainWindow);
+    mainWindow.show();
+  });
+  mainWindow.on("resize", () => {
+    if (mainWindow) fitZoomToWindow(mainWindow);
+  });
   mainWindow.webContents.once("did-finish-load", () => {
     if (OPEN_DEVTOOLS_ON_START) {
       mainWindow?.webContents.openDevTools({ mode: "detach" });
