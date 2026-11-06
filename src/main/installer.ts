@@ -181,6 +181,39 @@ export function setHermesHomeOverride(home: string): void {
   }
 }
 
+/** The venv a Hermes install at `home` runs from: `hermes-agent/venv` for
+ *  older installers, otherwise the staged venv that current installers record
+ *  in `installs/<id>/facts.json` (fathah/hermes-desktop#1036). */
+function resolveHermesVenv(home: string): string {
+  const legacyVenv = join(home, "hermes-agent", "venv");
+  if (existsSync(legacyVenv)) return legacyVenv;
+
+  const [newestStagedVenv = legacyVenv] = stagedHermesVenvs(home);
+  return newestStagedVenv;
+}
+
+function stagedHermesVenvs(home: string): string[] {
+  const installsDir = join(home, "installs");
+  if (!existsSync(installsDir)) return [];
+
+  const venvs: { path: string; modifiedAt: number }[] = [];
+  for (const installId of readdirSync(installsDir)) {
+    const factsFile = join(installsDir, installId, "facts.json");
+    let facts: { packages?: { venv?: { environment?: unknown } } };
+    try {
+      facts = JSON.parse(readFileSync(factsFile, "utf8"));
+    } catch {
+      continue;
+    }
+    const { packages: { venv: { environment } = {} } = {} } = facts;
+    if (typeof environment !== "string" || !existsSync(environment)) continue;
+    venvs.push({ path: environment, modifiedAt: statSync(factsFile).mtimeMs });
+  }
+  return venvs
+    .sort((a, b) => b.modifiedAt - a.modifiedAt)
+    .map(({ path }) => path);
+}
+
 const storedHermesHome = readHermesHomeOverride();
 const storedHomeShadowsInherited = Boolean(
   inheritedHermesHome &&
@@ -195,7 +228,7 @@ export const HERMES_HOME =
   storedHermesHome?.hermesHome ||
   defaultHermesHome();
 export const HERMES_REPO = join(HERMES_HOME, "hermes-agent");
-export const HERMES_VENV = join(HERMES_REPO, "venv");
+export const HERMES_VENV = resolveHermesVenv(HERMES_HOME);
 // On Windows, use `pythonw.exe` (the GUI-subsystem interpreter that ships in
 // every venv) instead of `python.exe` so that subprocess spawns don't flash
 // a blank console window before `windowsHide: true` / CREATE_NO_WINDOW takes
@@ -217,11 +250,10 @@ export const HERMES_ENV_FILE = join(HERMES_HOME, ".env");
 export const HERMES_CONFIG_FILE = join(HERMES_HOME, "config.yaml");
 export const HERMES_AUTH_FILE = join(HERMES_HOME, "auth.json");
 
-/** The Python + hermes-script paths for a Hermes install rooted at `home`,
- *  in the layout the desktop's own installer produces. */
+/** The Python + hermes-script paths for a Hermes install rooted at `home`. */
 function installBinariesFor(home: string): { python: string; script: string } {
   const repo = join(home, "hermes-agent");
-  const venv = join(repo, "venv");
+  const venv = resolveHermesVenv(home);
   return IS_WINDOWS
     ? {
         python: join(venv, "Scripts", "python.exe"),
