@@ -6,29 +6,23 @@ The `.onboard-screen` CSS scope owns `color-scheme: dark`, its dark surface and 
 
 ## OnboardHero
 
-[[src/renderer/src/components/common/OnboardHero.tsx#OnboardHero]] renders the shared `onboard-*` chrome: a flat dark surface, the emblem, an uppercase `eyebrow` label, an upright `title`, and page-specific `children` inside a reveal-on-settle body.
+[[src/renderer/src/components/common/OnboardHero.tsx#OnboardHero]] renders the shared `onboard-*` chrome: a flat dark surface, the emblem, an uppercase `eyebrow` label, an upright `title`, and page-specific `children`.
 
-Props: `eyebrow`, `title`, `children`, `intro` (play the full intro), `wide` (widen the column for the installing terminal). All visual tokens live under the `ONBOARDING HERO (shared)` block in `main.css`; `.onboard-screen` also scopes a brighter navy `--accent` so the primary button reads on the dark surface. The shell carries no glows, gradients, blur or particles: the emblem draw-in is its one motion signature.
+Everything renders on the first frame, so the user lands straight on the wizard with no intro animation.
+
+Props: `eyebrow`, `title`, `children`, `wide` (widen the column for the installing terminal). All visual tokens live under the `ONBOARDING HERO (shared)` block in `main.css`; `.onboard-screen` also scopes a brighter navy `--accent` so the primary button reads on the dark surface. The shell carries no glows, gradients, blur, particles or entrance motion.
 
 The screens are `user-select: none` chrome; only `input`, `textarea`, `code`, and `[data-selectable]` stay selectable (so the install path and log can still be copied).
 
-### Intro choreography
-
-When `intro` is set (the Welcome screen), the emblem draws itself **big in the centre**, then flies up and shrinks into its settled slot before the content cascades in.
-
-The component holds a `phase` of `draw → settle → done`. On mount a timer at `DRAW_MS` (the stroke-draw + fill completes) measures the settled emblem's `getBoundingClientRect`, sets the flying logo's transform to translate/scale into that slot, and switches to `settle`; a second timer at `DRAW_MS + SETTLE_MS` switches to `done`, which removes the flying overlay and runs the reveal cascade via the `[data-phase="done"]` CSS rules. `prefers-reduced-motion` skips straight to `done` with no fly.
-
-The stroke-draw itself is pure CSS: each emblem path animates `onboardDraw` (dash offset) → `onboardFill` (fill-opacity) → `onboardStrokeOut`, staggered per path via the `.onboard-fp{1..4}` classes.
-
 ## Welcome
 
-[[src/renderer/src/screens/Welcome/Welcome.tsx#Welcome]] is the default first-run view. Its no-error state renders through `OnboardHero intro`.
+[[src/renderer/src/screens/Welcome/Welcome.tsx#Welcome]] is the default first-run view. Its no-error state renders through `OnboardHero`.
 
 The hero carries the "PETASOS" eyebrow, subtitle, a flat accent "Get Started" pill, and bordered `.onboard-btn-secondary` "Connect via SSH" / "Connect to Remote Hermes" pills. The install-error state and the SSH / remote connect panels keep the legacy `.welcome-screen` layout.
 
 ## Install confirm + progress
 
-[[src/renderer/src/screens/Install/Install.tsx#Install]] renders both the pre-install confirmation and the running progress through `OnboardHero` (no intro — the emblem fades in place).
+[[src/renderer/src/screens/Install/Install.tsx#Install]] renders both the pre-install confirmation and the running progress through `OnboardHero`.
 
 The confirm view (eyebrow "SETUP", title "Before installing") shows the target path in an `.onboard-field`, a `.onboard-note-card` describing the fresh/update/replace state, and Install / Use-existing / Cancel actions.
 
