@@ -15,10 +15,6 @@ import { captureScreenView } from "./utils/analytics";
 
 type Screen = "splash" | "welcome" | "installing" | "setup" | "main";
 
-// Minimum time the splash stays visible so the background video plays
-// through. Gateway / config checks happen during this window.
-const SPLASH_MIN_MS = 3000;
-
 function App(): React.JSX.Element {
   const [screen, setScreen] = useState<Screen>("splash");
   const [installError, setInstallError] = useState<string | null>(null);
@@ -46,7 +42,6 @@ function App(): React.JSX.Element {
 
   const runInstallCheck = useCallback(async () => {
     const myRun = ++runIdRef.current;
-    const startedAt = Date.now();
     let next: Screen = "welcome";
     const error: string | null = null;
     let isRemote = false;
@@ -119,12 +114,6 @@ function App(): React.JSX.Element {
     setSplashStatus(undefined);
     if (error) setInstallError(error);
 
-    const elapsed = Date.now() - startedAt;
-    const wait = Math.max(0, SPLASH_MIN_MS - elapsed);
-    if (wait > 0) {
-      await new Promise((r) => setTimeout(r, wait));
-    }
-    if (myRun !== runIdRef.current) return;
     if (!isRemote) setSetupProfile(nextSetupProfile);
     setScreen(next);
 

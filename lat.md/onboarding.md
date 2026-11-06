@@ -47,3 +47,5 @@ The running effect is keyed only by its phase. A current translation reference s
 ## Startup splash
 
 The very first frame on launch is still [[src/renderer/src/screens/SplashScreen/SplashScreen.tsx]], shown by [[src/renderer/src/App.tsx#App]] while `runInstallCheck` runs. It is separate from the onboarding chrome above — see [[main-process]] for its "Switch to local mode" escape hatch.
+
+It shows the petasos mark and a status line on black, with no background video and no minimum hold, so it leaves as soon as the check settles.
