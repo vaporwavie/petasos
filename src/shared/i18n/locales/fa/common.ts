@@ -1,5 +1,5 @@
 export default {
-  appName: "Hermes One",
+  appName: "Petasos",
   continue: "ادامه",
   cancel: "لغو",
   retry: "تلاش دوباره",

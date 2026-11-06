@@ -22,7 +22,7 @@ export default {
     logs: "السجلات والتشخيص",
   },
   agentSubtitle: "محرك الذكاء الاصطناعي المحلي",
-  desktopTitle: "Hermes One Desktop",
+  desktopTitle: "Petasos",
   desktopSubtitle: "تطبيق سطح المكتب هذا",
   statusUpToDate: "محدث",
   statusUpdateAvailable: "تحديث متاح",

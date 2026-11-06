@@ -67,7 +67,7 @@ describe("I18nProvider", () => {
     });
 
     expect(
-      await screen.findByText("Welcome to Hermes One"),
+      await screen.findByText("Welcome to Petasos"),
     ).toBeInTheDocument();
   });
 
@@ -129,6 +129,6 @@ describe("I18nProvider", () => {
     expect(document.documentElement).toHaveAttribute("dir", "rtl");
     expect(document.documentElement).toHaveAttribute("lang", "fa");
     expect(localStorage.getItem("hermes-locale")).toBe("fa");
-    expect(screen.getByText("Welcome to Hermes One")).toBeInTheDocument();
+    expect(screen.getByText("Welcome to Petasos")).toBeInTheDocument();
   });
 });

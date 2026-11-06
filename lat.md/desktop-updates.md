@@ -160,9 +160,9 @@ Electron Builder explicitly unpacks `node_modules/better-sqlite3/prebuilds/*.nod
 
 ### Platform package identity
 
-Linux packages use the space-free `/opt/HermesOne` directory while macOS keeps the existing `Hermes One.app` bundle and executable name. RPM filenames retain the `.rpm` extension expected by release uploads.
+Linux packages install to `/opt/Petasos` and macOS builds a `Petasos.app` bundle with the same executable name. RPM filenames retain the `.rpm` extension expected by release uploads.
 
-The global packaging product name supplies Electron Builder's Linux install-directory component. The explicit macOS `executableName` preserves its bundle path, and platform display labels retain Hermes One. Linux package setup uses the builder's default hooks. [[tests/packaging-identity.test.ts]] validates the configuration with the installed Electron Builder schema and evaluates its real application metadata and artifact macros.
+The global packaging product name supplies Electron Builder's Linux install-directory component. The explicit macOS `executableName` sets its bundle path. Linux package setup uses the builder's default hooks. [[tests/packaging-identity.test.ts]] validates the configuration with the installed Electron Builder schema and evaluates its real application metadata and artifact macros.
 
 ### Linux package sandbox and AppArmor
 

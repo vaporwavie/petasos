@@ -24,7 +24,7 @@ export default {
     logs: "Logs & Diagnostics",
   },
   agentSubtitle: "The local AI engine",
-  desktopTitle: "Hermes One Desktop",
+  desktopTitle: "Petasos",
   desktopSubtitle: "This desktop app",
   statusUpToDate: "Up to date",
   statusUpdateAvailable: "Update available",
