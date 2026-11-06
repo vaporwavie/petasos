@@ -120,6 +120,7 @@ describe("local gateway status", () => {
   afterEach(() => {
     vi.mocked(profileHome).mockReset();
     vi.mocked(pidIsAliveAs).mockReset();
+    mockedGetApiServerKey.mockReturnValue("");
     rmSync(home, { recursive: true, force: true });
   });
 
@@ -219,6 +220,11 @@ describe("local gateway status", () => {
       );
       expect(isExternallyManagedMultiplexGateway("default")).toBe(true);
       expect(isExternallyManagedMultiplexGateway("scout")).toBe(false);
+      mockedGetApiServerKey.mockReturnValue("");
+      expect(() =>
+        assertLocalGatewayKeyMutationAllowed("API_SERVER_KEY", "default"),
+      ).not.toThrow();
+      mockedGetApiServerKey.mockReturnValue("live-gateway-key");
       expect(() =>
         assertLocalGatewayKeyMutationAllowed("API_SERVER_KEY", "default"),
       ).toThrow("managed outside Hermes One");

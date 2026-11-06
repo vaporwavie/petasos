@@ -125,6 +125,8 @@ Hermes One never claims to stop a multiplex gateway owned by a service or other 
 
 An API key cannot be rotated in Hermes One while another process owns the live default gateway, because that process would keep using its old key until its own supervisor restarts it.
 
+A first key can be saved when none resolves yet, since there is no old key to fall out of sync; the desktop then asks the user to run `hermes gateway restart`.
+
 ### Equivalent gateway home paths
 
 An externally managed gateway's recorded home and the desktop's home can differ lexically through a symlink while naming the same directory; status and control ownership must recognize that equivalence.

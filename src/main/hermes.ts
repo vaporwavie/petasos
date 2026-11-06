@@ -3809,7 +3809,8 @@ export function assertLocalGatewayKeyMutationAllowed(
       key === "api_server.token" ||
       key === "api_server.extra.key" ||
       key === "platforms.api_server.extra.key") &&
-    isExternallyManagedMultiplexGateway(profile ?? "default")
+    isExternallyManagedMultiplexGateway(profile ?? "default") &&
+    getApiServerKey(profile)
   ) {
     throw new Error(
       "The API key belongs to a gateway managed outside Hermes One. Change it through that gateway's service manager.",
