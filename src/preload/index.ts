@@ -181,8 +181,6 @@ const hermesAPI = {
 
   getGpuStatus: (): Promise<GpuStatus> => ipcRenderer.invoke("get-gpu-status"),
 
-  reenableGpu: (): Promise<boolean> => ipcRenderer.invoke("reenable-gpu"),
-
   setGpuPreference: (mode: GpuPreferenceMode): Promise<boolean> =>
     ipcRenderer.invoke("set-gpu-preference", mode),
 

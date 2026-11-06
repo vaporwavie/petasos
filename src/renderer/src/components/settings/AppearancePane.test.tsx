@@ -60,8 +60,6 @@ function installGpuStatus(): void {
       getGpuStatus: vi.fn().mockResolvedValue({
         disabled: false,
         reason: null,
-        flagWrittenAt: null,
-        canReenable: false,
         preference: "auto",
         bootPreference: "auto",
       }),

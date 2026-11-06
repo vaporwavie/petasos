@@ -70,12 +70,7 @@ import {
   mediaFileExists,
 } from "../media";
 import { openTerminalInDirectory } from "../terminal-launcher";
-import {
-  getGpuStatus,
-  reenableGpuAndRelaunch,
-  setGpuPreference,
-  relaunchApp,
-} from "../gpu-fallback";
+import { getGpuStatus, setGpuPreference, relaunchApp } from "../gpu-fallback";
 import type { GpuPreferenceMode } from "../../shared/gpu";
 import { buildAgentCapabilitySnapshot } from "../../shared/agent-capabilities";
 import { getConnectionStatuses } from "../connection-status";
@@ -834,10 +829,7 @@ export function registerIpcHandlers(context: IpcContext): void {
   });
   ipcMain.handle("quit-app", () => app.quit());
 
-  // GPU fallback visibility: lets the Office tab explain SwiftShader slowness
-  // and offer a one-click recovery instead of silently rendering 3D on the CPU.
   ipcMain.handle("get-gpu-status", () => getGpuStatus());
-  ipcMain.handle("reenable-gpu", () => reenableGpuAndRelaunch());
   // Settings → Appearance hardware-acceleration preference. Validated here
   // because the renderer is untrusted for main-process file writes.
   ipcMain.handle("set-gpu-preference", (_event, mode: GpuPreferenceMode) => {

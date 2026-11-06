@@ -23,7 +23,7 @@ function shouldHonorPersistedGpuFlag(): boolean {
   if (process.env.HERMES_GPU_FALLBACK === "0") return false;
   // The persistent fallback targets Windows/Linux GPU crash loops caused by
   // virtual adapters and constrained GPU stacks. On macOS it can permanently
-  // push the Office tab onto slow SwiftShader after a transient GPU hiccup.
+  // push the app onto software rendering after a transient GPU hiccup.
   return process.platform !== "darwin";
 }
 
@@ -199,12 +199,10 @@ export function applyGpuPreferences(): void {
   app.disableHardwareAcceleration();
   app.commandLine.appendSwitch("disable-gpu");
   app.commandLine.appendSwitch("disable-gpu-compositing");
-  // Keep the software (SwiftShader) rasterizer available so WebGL surfaces — the
-  // Office 3D tab — still render when hardware acceleration is off (VMs, headless
-  // GPUs, machines whose GPU process crashes). We deliberately do NOT pass
-  // --disable-software-rasterizer. Chromium 136 gates SwiftShader-backed WebGL
-  // behind --enable-unsafe-swiftshader, so opt in explicitly; without it WebGL
-  // context creation fails ("Could not create a WebGL context ... Disabled").
+  // Keep SwiftShader WebGL available when hardware acceleration is off, so
+  // WebGL pages (e.g. in the web preview) still render. Chromium 136 gates it
+  // behind --enable-unsafe-swiftshader; we deliberately do NOT pass
+  // --disable-software-rasterizer.
   app.commandLine.appendSwitch("enable-unsafe-swiftshader");
 }
 
@@ -231,8 +229,6 @@ export function getGpuStatus(): GpuStatus {
     return {
       disabled: false,
       reason: null,
-      flagWrittenAt: null,
-      canReenable: false,
       preference,
       bootPreference: boot,
     };
@@ -241,8 +237,6 @@ export function getGpuStatus(): GpuStatus {
     return {
       disabled: true,
       reason: "env",
-      flagWrittenAt: null,
-      canReenable: false,
       preference,
       bootPreference: boot,
     };
@@ -251,20 +245,14 @@ export function getGpuStatus(): GpuStatus {
     return {
       disabled: true,
       reason: "sentinel",
-      flagWrittenAt: flagWrittenAt()?.toISOString() ?? null,
-      canReenable: true,
       preference,
       bootPreference: boot,
     };
   }
   if (preference === "off") {
-    // The user's own Settings choice — informational only; changing it lives
-    // in Settings, not in the Office banner's one-click recovery.
     return {
       disabled: true,
       reason: "preference",
-      flagWrittenAt: null,
-      canReenable: false,
       preference,
       bootPreference: boot,
     };
@@ -272,8 +260,6 @@ export function getGpuStatus(): GpuStatus {
   return {
     disabled: true,
     reason: "flag",
-    flagWrittenAt: flagWrittenAt()?.toISOString() ?? null,
-    canReenable: true,
     preference,
     bootPreference: boot,
   };
@@ -285,20 +271,6 @@ export function relaunchApp(): void {
   const args = process.argv.slice(1).filter((a) => a !== GPU_DISABLE_ARG);
   app.relaunch({ args });
   app.exit(0);
-}
-
-/**
- * User-initiated recovery: delete the persisted flag and relaunch without the
- * GPU-off sentinel so the next process tries hardware acceleration again. If
- * the GPU still crashes, the crash guard writes a fresh flag — no crash loop.
- * Returns false (and does nothing) when the env var forces GPU off, since a
- * relaunch would inherit it.
- */
-export function reenableGpuAndRelaunch(): boolean {
-  if (gpuEnvOverride() === "on") return false;
-  clearGpuFlag("User requested hardware acceleration");
-  relaunchApp();
-  return true;
 }
 
 /**

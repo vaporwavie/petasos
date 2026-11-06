@@ -238,52 +238,28 @@ describe("gpu-fallback", () => {
     expect(h.state.handlers["child-process-gone"]).toBeUndefined();
   });
 
-  it("getGpuStatus reports the flag reason and its timestamp", async () => {
-    const writtenAt = new Date().toISOString();
-    writeFileSync(flagFile(), writtenAt);
+  it("getGpuStatus reports the flag reason", async () => {
+    writeFileSync(flagFile(), new Date().toISOString());
     const { getGpuStatus } = await load();
     expect(getGpuStatus()).toEqual({
       disabled: true,
       reason: "flag",
-      flagWrittenAt: writtenAt,
-      canReenable: true,
       preference: "auto",
       bootPreference: "auto",
     });
   });
 
-  it("getGpuStatus reports env-forced disable as non-reenableable", async () => {
+  it("getGpuStatus reports env-forced disable", async () => {
     vi.stubEnv("HERMES_DISABLE_GPU", "1");
     const { getGpuStatus } = await load();
     const status = getGpuStatus();
     expect(status.disabled).toBe(true);
     expect(status.reason).toBe("env");
-    expect(status.canReenable).toBe(false);
   });
 
   it("getGpuStatus reports enabled when nothing disables the GPU", async () => {
     const { getGpuStatus } = await load();
     expect(getGpuStatus().disabled).toBe(false);
-  });
-
-  it("reenableGpuAndRelaunch clears the flag and relaunches without the sentinel", async () => {
-    writeFileSync(flagFile(), new Date().toISOString());
-    process.argv = ["/path/to/app", SENTINEL];
-    const { reenableGpuAndRelaunch } = await load();
-    expect(reenableGpuAndRelaunch()).toBe(true);
-    expect(existsSync(flagFile())).toBe(false);
-    expect(h.state.relaunchArgs).not.toContain(SENTINEL);
-    expect(h.state.exited).toBe(true);
-  });
-
-  it("reenableGpuAndRelaunch refuses when HERMES_DISABLE_GPU=1 forces GPU off", async () => {
-    writeFileSync(flagFile(), new Date().toISOString());
-    vi.stubEnv("HERMES_DISABLE_GPU", "1");
-    const { reenableGpuAndRelaunch } = await load();
-    expect(reenableGpuAndRelaunch()).toBe(false);
-    expect(existsSync(flagFile())).toBe(true);
-    expect(h.state.relaunchCount).toBe(0);
-    expect(h.state.exited).toBe(false);
   });
 
   it('a Settings preference of "off" disables the GPU with no crash flag', async () => {
@@ -292,7 +268,6 @@ describe("gpu-fallback", () => {
     expect(isGpuDisabled()).toBe(true);
     const status = getGpuStatus();
     expect(status.reason).toBe("preference");
-    expect(status.canReenable).toBe(false);
   });
 
   it('a Settings preference of "on" ignores a fresh crash flag', async () => {

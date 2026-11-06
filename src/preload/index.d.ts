@@ -285,7 +285,6 @@ interface HermesAPI {
   adoptHermesHome: (dir: string) => Promise<boolean>;
   quitApp: () => Promise<void>;
   getGpuStatus: () => Promise<GpuStatus>;
-  reenableGpu: () => Promise<boolean>;
   setGpuPreference: (mode: GpuPreferenceMode) => Promise<boolean>;
   relaunchApp: () => Promise<void>;
   onInstallProgress: (
