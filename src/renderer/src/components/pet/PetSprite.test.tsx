@@ -31,7 +31,7 @@ beforeEach(() => {
   context = { clearRect: vi.fn(), drawImage: vi.fn() };
   imageInstances = [];
   vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockImplementation(
-    () => context as unknown as GPUCanvasContext,
+    () => context as unknown as CanvasRenderingContext2D,
   );
   vi.stubGlobal(
     "Image",
