@@ -12,7 +12,6 @@ import { ChatInput, type ChatInputHandle } from "./ChatInput";
 vi.mock("../../components/useI18n", () => ({
   useI18n: () => ({ t: (key: string) => key }),
 }));
-vi.mock("border-beam", () => ({ BorderBeam: () => null }));
 
 function deferred(): {
   promise: Promise<void>;
