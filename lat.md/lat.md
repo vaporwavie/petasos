@@ -15,7 +15,7 @@ This directory defines the high-level concepts, business logic, and architecture
 - [[code-blocks]] — collapsible long code blocks, and why expansion state is keyed on source position to survive react-markdown's streaming remounts.
 - [[rtl-chat]] — per-block message direction, LTR code isolation, and Persian locale registration with English fallback.
 - [[loading-indicators]] — the thinking-orbs dotted-orb loaders behind every loading state, and the OrbLoader wrapper that pins dark/light from the Hermes theme registry instead of the library's auto-detection.
-- [[theme-tokens]] — the color, radius, type-scale and syntax tokens every screen draws from, and the gaps that still use literals.
+- [[theme-tokens]] — the color, radius, type-scale and syntax tokens every screen draws from, the pixel-art Petasos mark and its icon generator, and the gaps that still use literals.
 - [[window-chrome]] — the browser-style title bar where open-conversation tabs sit on top of the window drag region, clickable while empty space still drags.
 - [[desktop-updates]] — GitHub release checks, startup upgrade button behavior, and the Settings auto-upgrade preference.
 - [[desktop-security]] — verified Unix bootstrap execution and safe rendering of runtime provider names.
@@ -27,7 +27,7 @@ This directory defines the high-level concepts, business logic, and architecture
 - [[context-folder]] — the per-session linked working folder, persisted in a desktop-owned state.db table so a re-opened conversation restores its folder.
 - [[main-process]] — the Electron main-process entrypoint, app lifecycle modules, and centralized IPC registry.
 - [[remote-dashboard-oauth]] — direct Remote dashboard browser authentication, main-process cookie isolation, and single-use WebSocket ticket handling.
-- [[onboarding]] — the shared flat first-run chrome (OnboardHero) around the Petasos emblem, with no intro animation, and the Welcome / Install screens built on it.
+- [[onboarding]] — the shared flat first-run chrome (OnboardHero) around the Petasos mark, with no intro animation, and the Welcome / Install screens built on it.
 - [[provider-setup]] — the first-run provider picker; its top grid mirrors the agent's native `CANONICAL_PROVIDERS` while OpenAI-compatible endpoints route through the Local presets.
 - [[hermes-account-login]] — desktop sign-in to a Hermes account via the RFC 8628 device grant; secure token storage, IPC, and the Providers-screen entry point.
 - [[agent-sync]] — bidirectional sync of desktop profiles with the signed-in account's cloud agents (persona, memory, color, model/provider) via the backend's `/api/agents`; hash-based per-part conflict handling, no deletion propagation.

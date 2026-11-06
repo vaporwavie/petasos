@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Timer, Brain, History, BookmarkPlus } from "lucide-react";
-import titleLine from "../../assets/title-line.svg";
 import { useI18n } from "../../components/useI18n";
 import ProfileAvatar from "../../components/common/ProfileAvatar";
+import PetasosLogo from "../../components/common/PetasosLogo";
 import type { AgentAvatarInfo } from "./MessageRow";
 
 interface Suggestion {
@@ -58,15 +58,7 @@ export const ChatEmptyState = memo(function ChatEmptyState({
             size={64}
           />
         ) : (
-          <span
-            className="chat-empty-logo"
-            role="img"
-            aria-label="Hermes"
-            style={{
-              maskImage: `url(${titleLine})`,
-              WebkitMaskImage: `url(${titleLine})`,
-            }}
-          />
+          <PetasosLogo size={64} />
         )}
       </div>
       <div className="chat-empty-suggestions">

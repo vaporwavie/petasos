@@ -1,12 +1,12 @@
 # Onboarding Chrome
 
-The first-run screens (Welcome, Install) share one flat dark shell around an animated Petasos emblem, provided by [[src/renderer/src/components/common/OnboardHero.tsx#OnboardHero]]. Titles are upright sans; the design intentionally runs dark regardless of theme.
+The first-run screens (Welcome, Install) share one flat dark shell around the Petasos mark, provided by [[src/renderer/src/components/common/OnboardHero.tsx#OnboardHero]]. Titles are upright sans; the design intentionally runs dark regardless of theme.
 
 The `.onboard-screen` CSS scope owns `color-scheme: dark`, its dark surface and text tokens, and its background colour. It never inherits saved light-theme tokens, so the first frame and every onboarding child retain the designed contrast. [[tests/onboarding-theme.test.ts]] protects that scope.
 
 ## OnboardHero
 
-[[src/renderer/src/components/common/OnboardHero.tsx#OnboardHero]] renders the shared `onboard-*` chrome: a flat dark surface, the emblem, an uppercase `eyebrow` label, an upright `title`, and page-specific `children`.
+[[src/renderer/src/components/common/OnboardHero.tsx#OnboardHero]] renders the shared `onboard-*` chrome: a flat dark surface, the Petasos mark at 96px, an uppercase `eyebrow` label, an upright `title`, and page-specific `children`.
 
 Everything renders on the first frame, so the user lands straight on the wizard with no intro animation.
 

@@ -26,6 +26,12 @@ The file viewer colors highlighted code from `--syntax-*` tokens scoped to `.fil
 
 The viewer's chrome uses the regular surface and text tokens on `--code-bg`, so it follows whichever theme is active instead of staying dark.
 
+## Brand mark
+
+The Petasos mark is a 32x32 pixel-art winged hat, drawn as a grid in [[scripts/brand/make_petasos.py]], which also renders every app icon.
+
+The script writes `src/renderer/src/assets/petasos.svg` (one `<rect>` per pixel run, `crispEdges`) and the dark rounded tile `build/icon.svg`, then rasterizes the tile into `build/icon.png`, `build/icon.ico`, `build/icon.icns` and `resources/icon.png`. [[src/renderer/src/components/common/PetasosLogo.tsx#PetasosLogo]] renders the mark in the app; callers pick multiples of 16px so pixels stay square. The Hermes account sign-in keeps the upstream Hermes One mark, since it represents that service.
+
 ## Known token gaps
 
 Two colors still have no semantic token: text on accent, success and error fills is a literal `#fff`, and info accents fall back to `#4aa8ff` through an undefined `--info`.

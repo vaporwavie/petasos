@@ -1,4 +1,4 @@
-import HermesLogo from "./HermesLogo";
+import PetasosLogo from "./PetasosLogo";
 import { defaultColorForName } from "../../../../shared/profileColors";
 
 interface ProfileAvatarProps {
@@ -50,7 +50,7 @@ export default function ProfileAvatar({
         className={`profile-avatar profile-avatar-logo ${className}`}
         style={dimension}
       >
-        <HermesLogo size={Math.round(size * 0.82)} />
+        <PetasosLogo size={Math.max(16, Math.floor((size * 0.82) / 16) * 16)} />
       </div>
     );
   }

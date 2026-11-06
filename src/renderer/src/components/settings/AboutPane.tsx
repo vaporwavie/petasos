@@ -14,7 +14,7 @@ import {
 import { useI18n } from "../useI18n";
 import BrandLogo from "../common/BrandLogo";
 import { Toggle } from "../common/Toggle";
-import hermesIcon from "../../assets/hermes-icon.svg";
+import petasosMark from "../../assets/petasos.svg";
 import pythonLogo from "../../assets/logos/python.svg";
 import openaiLogo from "../../assets/logos/openai.svg";
 import { ConfigHealth } from "../../screens/Settings/ConfigHealth";
@@ -241,10 +241,9 @@ export default function AboutPane({
         <header className="settings-card-head">
           <span className="settings-card-icon">
             <img
-              src={hermesIcon}
-              width={20}
-              height={20}
-              className="brand-logo brand-logo--match-theme"
+              src={petasosMark}
+              width={32}
+              height={32}
               alt={t("settings.desktopTitle")}
             />
           </span>

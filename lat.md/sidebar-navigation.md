@@ -186,9 +186,9 @@ The same per-profile appearance also drives the agent avatar inside the transcri
 
 The empty chat uses the same run-owned profile appearance as transcript rows, so the selected agent is visible before its first reply.
 
-[[src/renderer/src/screens/Chat/Chat.tsx]] passes its existing `agentAvatar` to [[src/renderer/src/screens/Chat/ChatEmptyState.tsx#ChatEmptyState]]. Named profiles display their colored initial or custom image; an uncustomized default retains the Hermes wordmark. Existing transcript orbs and scoped run routing remain authoritative.
+[[src/renderer/src/screens/Chat/Chat.tsx]] passes its existing `agentAvatar` to [[src/renderer/src/screens/Chat/ChatEmptyState.tsx#ChatEmptyState]]. Named profiles display their colored initial or custom image; an uncustomized default shows the Petasos mark. Existing transcript orbs and scoped run routing remain authoritative.
 
-An actual Chat regression switches the visible run's profile appearance and checks the empty-state image follows it, then restores the default wordmark without retaining the previous agent image.
+An actual Chat regression switches the visible run's profile appearance and checks the empty-state image follows it, then restores the default Petasos mark without retaining the previous agent image.
 
 ### Retained run appearance
 
