@@ -17,7 +17,7 @@
   color: inherit;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 8px 12px;
   min-height: 40px;
   cursor: pointer;
@@ -105,7 +105,7 @@
 }
 .bot-groups-action {
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 12px;
   margin: 8px 0;
 }
@@ -128,7 +128,7 @@
 }
 .bot-groups-create fieldset {
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 12px;
 }
 .bot-groups input:not([type="checkbox"]),
@@ -136,7 +136,7 @@
   background: var(--bg-primary);
   color: inherit;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 10px;
   font: inherit;
   min-width: 0;

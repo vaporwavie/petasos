@@ -1477,7 +1477,7 @@ function Chat({
                   width: 28,
                   height: 28,
                   padding: 0,
-                  borderRadius: 6,
+                  borderRadius: "var(--radius-sm)",
                   color: webPreviewVisible
                     ? "var(--accent-text)"
                     : "var(--text-secondary)",
