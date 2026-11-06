@@ -653,7 +653,7 @@ body:has(.shell-vibrant),
   padding: 10px 24px;
   border-radius: var(--radius-sm);
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: 500;
   border: none;
   cursor: pointer;
   transition: all var(--transition);
@@ -1968,7 +1968,7 @@ body:has(.shell-vibrant),
 .setup-label {
   display: block;
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
   margin-bottom: 8px;
 }
@@ -1991,7 +1991,7 @@ body:has(.shell-vibrant),
   border: none;
   color: var(--text-muted);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: var(--radius-sm);
@@ -2041,7 +2041,7 @@ body:has(.shell-vibrant),
   transition: all var(--transition);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -3726,7 +3726,7 @@ body:has(.shell-vibrant),
   border-radius: var(--radius-sm);
   color: #fff;
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: background var(--transition);
 }
@@ -5261,7 +5261,7 @@ body:has(.shell-vibrant),
   border-top: 1px solid var(--border);
   color: var(--accent-text);
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: background var(--transition);
 }
@@ -5360,7 +5360,7 @@ body:has(.shell-vibrant),
   border: none;
   border-radius: var(--radius-sm);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: background var(--transition);
 }
@@ -5472,7 +5472,7 @@ body:has(.shell-vibrant),
   background: var(--accent, #2563eb);
   color: #fff;
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -6707,7 +6707,7 @@ body:has(.shell-vibrant),
   padding: 24px 36px;
   color: #fff;
   font-size: var(--text-xl);
-  font-weight: 600;
+  font-weight: 500;
   background: rgba(0, 0, 0, 0.35);
 }
 
@@ -7757,7 +7757,7 @@ body:has(.shell-vibrant),
 
 .chat-reasoning-option-label {
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .chat-reasoning-option-description {
@@ -8189,7 +8189,7 @@ body:has(.shell-vibrant),
   box-shadow: inset 0 0 0 1px var(--border);
   color: var(--text-secondary);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition:
     background var(--transition),
@@ -8368,7 +8368,7 @@ body:has(.shell-vibrant),
 
 .settings-field-label {
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-primary);
   margin-bottom: 6px;
   display: flex;
@@ -8482,7 +8482,7 @@ body:has(.shell-vibrant),
 
 .settings-toggle-btn {
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -8624,7 +8624,7 @@ body:has(.shell-vibrant),
   padding: 12px 14px;
   color: var(--text-muted);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   background: color-mix(in srgb, var(--text-primary) 4%, transparent);
   transition:
@@ -8802,7 +8802,7 @@ body:has(.shell-vibrant),
 }
 .provider-field-label {
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 .provider-field-meta {
@@ -8999,7 +8999,7 @@ body:has(.shell-vibrant),
 }
 .model-select-modal .settings-field-label {
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
   margin-bottom: 9px;
   display: block;
@@ -9458,7 +9458,7 @@ body:has(.shell-vibrant),
   background: none;
   color: var(--text-primary);
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   padding: 4px 8px;
 }
@@ -9519,7 +9519,7 @@ body:has(.shell-vibrant),
 .settings-saved {
   color: var(--success);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   animation: fadeInOut 2s ease forwards;
 }
 
@@ -9742,7 +9742,7 @@ body:has(.shell-vibrant),
 
 .settings-gateway-status {
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -9814,7 +9814,7 @@ body:has(.shell-vibrant),
 
 .settings-platform-label {
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
@@ -10177,7 +10177,7 @@ body:has(.shell-vibrant),
 
 .gateway-unsaved-hint {
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--warning);
 }
 
@@ -10497,7 +10497,7 @@ body:has(.shell-vibrant),
   text-align: center;
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -10637,7 +10637,7 @@ body:has(.shell-vibrant),
 
 .settings-theme-system-label {
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
@@ -10673,7 +10673,7 @@ body:has(.shell-vibrant),
 }
 .settings-row-label {
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.35;
   color: var(--text-primary);
   overflow-wrap: anywhere;
@@ -10760,7 +10760,7 @@ body:has(.shell-vibrant),
   transition: border-color var(--transition);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-primary);
   text-align: left;
 }
@@ -11314,7 +11314,7 @@ body:has(.shell-vibrant),
 
 .profile-modal-label {
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -11679,7 +11679,7 @@ body:has(.shell-vibrant),
   padding: 4px 12px;
   border-radius: 999px;
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--accent, #4c8dff);
   background: color-mix(in srgb, var(--accent, #4c8dff) 14%, transparent);
   border: 1px solid color-mix(in srgb, var(--accent, #4c8dff) 32%, transparent);
@@ -11959,7 +11959,7 @@ body:has(.shell-vibrant),
   color: var(--text-primary);
   font: inherit;
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
   cursor: pointer;
   transition:
@@ -12737,7 +12737,7 @@ body:has(.shell-vibrant),
   gap: 8px;
   color: var(--text-secondary);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .agents-create-modal-actions {
@@ -12872,7 +12872,7 @@ body:has(.shell-vibrant),
   color: var(--text-muted);
   font: inherit;
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -12895,7 +12895,7 @@ body:has(.shell-vibrant),
   background: var(--bg-secondary);
   color: var(--text-secondary);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   cursor: pointer;
 }
@@ -12977,7 +12977,7 @@ body:has(.shell-vibrant),
 
 .sessions-empty-text {
   font-size: var(--text-lg);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -13368,7 +13368,7 @@ body:has(.shell-vibrant),
   cursor: pointer;
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
   transition: all var(--transition);
 }
@@ -13532,7 +13532,7 @@ body:has(.shell-vibrant),
 
 .skills-empty-text {
   font-size: var(--text-lg);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -13716,7 +13716,7 @@ body:has(.shell-vibrant),
   margin-bottom: -1px;
   color: var(--text-muted);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font-sans);
   cursor: pointer;
   transition: all var(--transition);
@@ -13763,7 +13763,7 @@ body:has(.shell-vibrant),
   border-radius: calc(var(--radius-md) - 3px);
   color: var(--text-muted);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font-sans);
   cursor: pointer;
   transition: all var(--transition);
@@ -14434,7 +14434,7 @@ body:has(.shell-vibrant),
 
 .schedules-empty-text {
   font-size: var(--text-lg);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -14498,7 +14498,7 @@ body:has(.shell-vibrant),
 
 .schedules-field-label {
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -14613,7 +14613,7 @@ body:has(.shell-vibrant),
   cursor: pointer;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
   transition: all var(--transition);
   white-space: nowrap;
@@ -14672,7 +14672,7 @@ body:has(.shell-vibrant),
 .soul-saved {
   color: var(--success);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   animation: fadeInOut 2s ease forwards;
 }
 
@@ -14795,7 +14795,7 @@ body:has(.shell-vibrant),
 
 .memory-capacity-label {
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -15170,7 +15170,7 @@ body:has(.shell-vibrant),
   margin-bottom: -1px;
   color: var(--text-muted);
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font-sans);
   cursor: pointer;
   transition: all var(--transition);
@@ -15545,7 +15545,7 @@ body:has(.shell-vibrant),
 
 .tools-card-label {
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-primary);
   margin-bottom: 2px;
 }
@@ -16287,7 +16287,7 @@ body:has(.shell-vibrant),
 
 .models-modal-label {
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -17491,7 +17491,7 @@ body:has(.shell-vibrant),
 
 .web-preview-annotate-label {
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
