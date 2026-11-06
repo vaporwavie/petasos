@@ -656,7 +656,11 @@ body:has(.shell-vibrant),
   font-weight: 500;
   border: none;
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
   font-family: var(--font-sans);
   line-height: 1;
   white-space: nowrap;
@@ -706,7 +710,9 @@ body:has(.shell-vibrant),
   border-radius: var(--radius-sm);
   font-size: var(--text-base);
   font-family: var(--font-sans);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .btn-ghost:hover {
@@ -1854,7 +1860,11 @@ body:has(.shell-vibrant),
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition);
   font-family: var(--font-sans);
   color: var(--text-primary);
 }
@@ -2038,7 +2048,10 @@ body:has(.shell-vibrant),
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: 500;
@@ -2244,7 +2257,10 @@ body:has(.shell-vibrant),
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
 }
 
 .sidebar-collapse-toggle:hover {
@@ -2360,7 +2376,9 @@ body:has(.shell-vibrant),
   padding: 7px 10px;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
   font-size: var(--text-base);
   border: none;
   background: none;
@@ -2627,7 +2645,10 @@ body:has(.shell-vibrant),
   font-family: var(--font-sans);
   font-size: var(--text-sm);
 
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
 }
 
 .sidebar-recent-session.project-child {
@@ -3327,7 +3348,9 @@ body:has(.shell-vibrant),
   background: none;
   color: var(--text-muted);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 .profile-switch-btn:hover {
   background: var(--bg-tertiary);
@@ -3460,7 +3483,10 @@ body:has(.shell-vibrant),
   font-family: var(--font-sans);
   cursor: pointer;
   text-align: left;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
 }
 
 .profile-switcher.compact .profile-switcher-trigger {
@@ -3701,7 +3727,9 @@ body:has(.shell-vibrant),
   font-family: var(--font-sans);
   cursor: pointer;
   text-align: left;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .profile-menu-manage:hover {
@@ -3784,7 +3812,9 @@ body:has(.shell-vibrant),
   border-radius: var(--radius-xs);
   cursor: pointer;
   color: var(--text-muted);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .theme-switcher-btn:hover {
@@ -5168,7 +5198,10 @@ body:has(.shell-vibrant),
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
 }
 
 .chat-bubble-copy:hover,
@@ -6164,7 +6197,9 @@ body:has(.shell-vibrant),
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    opacity var(--transition);
   flex-shrink: 0;
 }
 
@@ -7444,7 +7479,9 @@ body:has(.shell-vibrant),
   cursor: pointer;
   padding: 4px 6px;
   border-radius: var(--radius-xs);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .chat-meta-chip:hover,
@@ -7569,7 +7606,9 @@ body:has(.shell-vibrant),
   cursor: pointer;
   padding: 3px;
   border-radius: var(--radius-xs);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .chat-meta-chip-icon:hover,
@@ -7589,7 +7628,9 @@ body:has(.shell-vibrant),
   cursor: pointer;
   padding: 4px 8px;
   border-radius: var(--radius-xs);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .chat-model-trigger:hover {
@@ -7662,7 +7703,9 @@ body:has(.shell-vibrant),
   cursor: pointer;
   padding: 4px 8px;
   border-radius: var(--radius-xs);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .chat-reasoning-trigger:hover,
@@ -10493,7 +10536,10 @@ body:has(.shell-vibrant),
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
   text-align: center;
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -10962,7 +11008,10 @@ body:has(.shell-vibrant),
   background: var(--bg-elevated);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
 }
 .agents-row-edit:hover {
   color: var(--text-primary);
@@ -13370,7 +13419,9 @@ body:has(.shell-vibrant),
   font-size: var(--text-base);
   font-weight: 500;
   color: var(--text-secondary);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .skills-tab:hover {
@@ -13434,7 +13485,10 @@ body:has(.shell-vibrant),
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text-secondary);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
   white-space: nowrap;
 }
 
@@ -13462,7 +13516,9 @@ body:has(.shell-vibrant),
   border-radius: var(--radius-md);
   padding: 14px;
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
   text-align: left;
   font-family: var(--font-sans);
   display: flex;
@@ -13719,7 +13775,9 @@ body:has(.shell-vibrant),
   font-weight: 500;
   font-family: var(--font-sans);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    border-bottom-color var(--transition),
+    color var(--transition);
 }
 
 .discover-tab:hover {
@@ -13766,7 +13824,9 @@ body:has(.shell-vibrant),
   font-weight: 500;
   font-family: var(--font-sans);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .discover-segment-btn:hover {
@@ -14290,7 +14350,9 @@ body:has(.shell-vibrant),
   padding: 4px;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 .schedules-action-btn:hover {
@@ -14615,7 +14677,9 @@ body:has(.shell-vibrant),
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text-secondary);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
   white-space: nowrap;
 }
 
@@ -14837,7 +14901,9 @@ body:has(.shell-vibrant),
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all var(--transition);
+  transition:
+    border-bottom-color var(--transition),
+    color var(--transition);
 }
 
 .memory-tab:hover {
@@ -15173,7 +15239,11 @@ body:has(.shell-vibrant),
   font-weight: 500;
   font-family: var(--font-sans);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-bottom-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
 }
 
 .tools-tab svg {
@@ -15725,7 +15795,9 @@ body:has(.shell-vibrant),
   background: color-mix(in srgb, var(--text-primary) 16%, transparent);
   border: none;
   border-radius: var(--radius-md);
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
   position: relative;
 }
 
@@ -15738,7 +15810,9 @@ body:has(.shell-vibrant),
   height: 16px;
   background: var(--text-muted);
   border-radius: 50%;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
 }
 
 .tools-toggle input:checked + .tools-toggle-track {
@@ -15799,7 +15873,10 @@ body:has(.shell-vibrant),
   background: color-mix(in srgb, var(--text-primary) 8%, transparent);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
 }
 
 .tools-icon-btn:hover:not(:disabled) {
@@ -16024,7 +16101,10 @@ body:has(.shell-vibrant),
   color: var(--text-secondary);
   font-size: var(--text-md);
   cursor: pointer;
-  transition: all 0.2s;
+  transition:
+    background-color var(--transition),
+    border-bottom-color var(--transition),
+    color var(--transition);
   border-radius: var(--radius-xs) var(--radius-xs) 0 0;
 }
 
@@ -16092,7 +16172,10 @@ body:has(.shell-vibrant),
   color: var(--text-secondary);
   font-size: var(--text-sm);
   cursor: pointer;
-  transition: all 0.15s;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
 }
 
 .models-provider-chip:hover {
@@ -16794,7 +16877,9 @@ body:has(.shell-vibrant),
   font-size: var(--text-sm);
   font-weight: 500;
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    border-color var(--transition),
+    color var(--transition);
 }
 
 .kanban-board-chip:hover:not(:disabled) {
@@ -17428,7 +17513,10 @@ body:has(.shell-vibrant),
   border-radius: var(--radius-sm);
   cursor: pointer;
   flex-shrink: 0;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
 }
 
 .web-preview-btn:hover:not(:disabled) {
@@ -17588,7 +17676,11 @@ body:has(.shell-vibrant),
   border: 0;
   border-radius: 50%;
   cursor: pointer;
-  transition: all var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition),
+    filter var(--transition);
 }
 
 .web-preview-annotation-cancel {
