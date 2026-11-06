@@ -4,7 +4,7 @@ This directory defines the high-level concepts, business logic, and architecture
 
 - [[chat-commands]] — how typed slash commands are routed through the gateway's `slash.exec`/`command.dispatch` pipeline instead of being sent as prompt text.
 - [[bot-groups]] — experimental, local-only Agent group UI over the Hermes-owned groups protocol; no second coordination runtime.
-- [[chat-input]] — the unified chat composer surface and its theme-aware animated border treatment.
+- [[chat-input]] — the unified chat composer surface and its attachment capacity rules.
 - [[chat-performance]] — how chat rendering stays responsive through contained transcript rows, batched textarea resizing, and fixed-row slash-command virtualization.
 - [[chat-experience-preferences]] — user-message Markdown plus persisted completion-sound and native multi-language spell-check preferences.
 - [[shared-pets]] — the official Hermes pet gateway contract shared across profiles, gallery selection, sprite rendering, and live activity.
@@ -15,6 +15,7 @@ This directory defines the high-level concepts, business logic, and architecture
 - [[code-blocks]] — collapsible long code blocks, and why expansion state is keyed on source position to survive react-markdown's streaming remounts.
 - [[rtl-chat]] — per-block message direction, LTR code isolation, and Persian locale registration with English fallback.
 - [[loading-indicators]] — the thinking-orbs dotted-orb loaders behind every loading state, and the OrbLoader wrapper that pins dark/light from the Hermes theme registry instead of the library's auto-detection.
+- [[theme-tokens]] — the color, radius, type-scale and syntax tokens every screen draws from, and the gaps that still use literals.
 - [[window-chrome]] — the browser-style title bar where open-conversation tabs sit on top of the window drag region, clickable while empty space still drags.
 - [[desktop-updates]] — GitHub release checks, startup upgrade button behavior, and the Settings auto-upgrade preference.
 - [[desktop-security]] — verified Unix bootstrap execution and safe rendering of runtime provider names.
