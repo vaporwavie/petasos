@@ -66,9 +66,7 @@ describe("I18nProvider", () => {
       );
     });
 
-    expect(
-      await screen.findByText("Welcome to Petasos"),
-    ).toBeInTheDocument();
+    expect(await screen.findByText("Welcome to Petasos")).toBeInTheDocument();
   });
 
   it("renders Spanish translations after switching locale", async () => {
