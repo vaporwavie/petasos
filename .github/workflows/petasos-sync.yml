@@ -1,0 +1,66 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: petasos-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "petasos-sync[bot]"
+          git config user.email "${GITHUB_REPOSITORY_OWNER}@users.noreply.github.com"
+          git fetch --no-tags https://github.com/fathah/hermes-desktop.git "+refs/heads/main:refs/remotes/upstream/main"
+
+      - name: Merge upstream into main
+        run: |
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "already at upstream $(git rev-parse --short upstream/main)"
+            exit 0
+          fi
+
+          if ! git merge --no-edit -m "chore(petasos): sync upstream" upstream/main; then
+            {
+              echo "Upstream changed the same lines as main. Run locally:"
+              echo
+              echo '```bash'
+              echo "git switch main && git pull && petasos/sync.sh"
+              echo '```'
+              echo
+              echo "Conflicting files:"
+              echo
+              git diff --name-only --diff-filter=U | sed 's/^/- `/; s/$/`/'
+            } >> "$GITHUB_STEP_SUMMARY"
+            git merge --abort
+            exit 1
+          fi
+
+          # The Actions token cannot push workflow edits, so those merges have to land from a local clone.
+          if ! git diff --quiet ORIG_HEAD HEAD -- .github/workflows; then
+            {
+              echo "Upstream edited a workflow, which the Actions token cannot push. Run locally:"
+              echo
+              echo '```bash'
+              echo "git switch main && git pull && petasos/sync.sh && git push"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          git push origin main
