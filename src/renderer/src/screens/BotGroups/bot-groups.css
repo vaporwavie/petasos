@@ -6,10 +6,10 @@
   height: 100%;
   min-height: 0;
   color: var(--text-primary);
-  font-size: 13px;
+  font-size: var(--text-base);
 }
 .bot-groups h2 {
-  font-size: 16px;
+  font-size: var(--text-xl);
   margin: 0 0 8px;
 }
 .bot-groups button {
@@ -39,7 +39,7 @@
 }
 .bot-groups-muted {
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: var(--text-sm);
   line-height: 1.5;
 }
 .bot-groups-toolbar {
@@ -86,7 +86,7 @@
   overflow-wrap: anywhere;
 }
 .bot-groups-message strong {
-  font-size: 12px;
+  font-size: var(--text-sm);
   color: var(--text-secondary);
 }
 .bot-groups-notice {
@@ -151,7 +151,7 @@
 .bot-groups-composer label {
   flex-basis: 100%;
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: var(--text-sm);
 }
 .bot-groups-composer textarea {
   flex: 1;
