@@ -1,15 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-// Deterministic twinkling starfield — golden-angle spread so dots never clump.
-// Generated once at module load, not per render.
-const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
-  x: (i * 137.508) % 100,
-  y: (i * 61.803 + 13) % 100,
-  delay: (i % 7) * 0.6,
-  dur: 2.6 + (i % 5) * 0.9,
-  size: i % 3 === 0 ? 2.5 : 1.5,
-}));
-
 // The winged-circle Hermes emblem. `draw` renders the stroke-draw variant used
 // by the flying intro logo; otherwise the settled filled emblem. Same path data
 // as the app icon.
@@ -81,9 +71,9 @@ interface OnboardHeroProps {
 }
 
 /**
- * Shared cinematic chrome for the onboarding screens. Renders the aurora
- * backdrop, starfield, animated Hermes emblem, eyebrow, upright title, and the
- * page-specific `children` inside a reveal-on-settle body.
+ * Shared chrome for the onboarding screens. Renders the animated emblem,
+ * eyebrow, upright title, and the page-specific `children` inside a
+ * reveal-on-settle body.
  */
 function OnboardHero({
   eyebrow,
@@ -128,27 +118,8 @@ function OnboardHero({
 
   return (
     <div className="screen onboard-screen" data-phase={phase}>
-      <div className="onboard-fx" aria-hidden="true">
-        <div className="onboard-aurora" />
-        <div className="onboard-vignette" />
-        {PARTICLES.map((p, i) => (
-          <span
-            key={i}
-            className="onboard-particle"
-            style={{
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: p.size,
-              height: p.size,
-              animation: `onboardTwinkle ${p.dur}s ease ${p.delay}s infinite`,
-            }}
-          />
-        ))}
-      </div>
-
       <div className={`onboard-hero${wide ? " onboard-hero--wide" : ""}`}>
         <div className="onboard-emblem" ref={emblemRef}>
-          <div className="onboard-emblem-glow" />
           <Emblem />
         </div>
 
@@ -159,7 +130,6 @@ function OnboardHero({
 
       {runIntro && phase !== "done" && (
         <div className="onboard-fly" style={flyStyle} aria-hidden="true">
-          <div className="onboard-fly-glow" />
           <Emblem draw />
         </div>
       )}

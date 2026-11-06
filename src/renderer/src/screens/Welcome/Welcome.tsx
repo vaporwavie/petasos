@@ -420,14 +420,14 @@ function Welcome({
 
       <div className="onboard-connect-row">
         <button
-          className="onboard-btn onboard-btn-glass"
+          className="onboard-btn onboard-btn-secondary"
           onClick={() => setPanel("ssh")}
         >
           <KeyRound size={16} />
           <span>{t("settings.connectSsh")}</span>
         </button>
         <button
-          className="onboard-btn onboard-btn-glass"
+          className="onboard-btn onboard-btn-secondary"
           onClick={() => setPanel("remote")}
         >
           <Globe size={16} />
@@ -446,7 +446,7 @@ function Welcome({
         </div>
         <button
           type="button"
-          className="onboard-btn onboard-btn-glass"
+          className="onboard-btn onboard-btn-secondary"
           onClick={() =>
             void window.hermesAPI.openExternal(
               "https://graphnosis.com/download",

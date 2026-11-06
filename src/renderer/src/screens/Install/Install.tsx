@@ -209,7 +209,7 @@ function Install({
             {t("install.confirmInstallBtn")}
           </button>
           <button
-            className="onboard-btn onboard-btn-glass"
+            className="onboard-btn onboard-btn-secondary"
             onClick={handleUseExisting}
           >
             {t("install.useExistingBtn")}
@@ -312,14 +312,14 @@ function Install({
             {t("install.retryInstallation")}
           </button>
           <button
-            className="onboard-btn onboard-btn-glass"
+            className="onboard-btn onboard-btn-secondary"
             onClick={handleCopyLogs}
           >
             <Copy size={15} />
             {copied ? t("install.copied") : t("install.copyLogs")}
           </button>
           <button
-            className="onboard-btn onboard-btn-glass"
+            className="onboard-btn onboard-btn-secondary"
             onClick={() =>
               window.hermesAPI.openExternal(TELEGRAM_COMMUNITY_URL)
             }
