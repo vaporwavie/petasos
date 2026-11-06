@@ -1,6 +1,7 @@
 export default {
   title: "歡迎使用 Hermes",
-  subtitle: "你的自我進化 AI 助理，在本機執行，兼顧隱私、能力與持續學習。",
+  subtitle:
+    "Petasos 在這台電腦上執行 Hermes 代理。它會記住你告訴它的事，並把你重複做的任務儲存為可重複使用的技能。",
   installIssueTitle: "安裝問題",
   getStarted: "開始使用",
   retryInstall: "重新安裝",

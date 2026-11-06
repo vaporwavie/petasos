@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Search, Clock, Mail, Code, ChartLine, Bell } from "lucide-react";
+import { Timer, Brain, History, BookmarkPlus } from "lucide-react";
 import titleLine from "../../assets/title-line.svg";
 import { useI18n } from "../../components/useI18n";
 import ProfileAvatar from "../../components/common/ProfileAvatar";
@@ -8,39 +8,29 @@ import type { AgentAvatarInfo } from "./MessageRow";
 interface Suggestion {
   i18nKey: string;
   text: string;
-  Icon: typeof Search;
+  Icon: typeof Timer;
 }
 
 const SUGGESTIONS: Suggestion[] = [
   {
-    i18nKey: "chat.suggestionSearch",
-    text: "Search the web for today's top tech news",
-    Icon: Search,
+    i18nKey: "chat.suggestionDailyBrief",
+    text: "Every weekday at 9 AM, search the web for news on the topics I care about and send me a five-line brief. Ask me which topics first.",
+    Icon: Timer,
   },
   {
-    i18nKey: "chat.suggestionReminder",
-    text: "Set a reminder to check emails every day at 9 AM",
-    Icon: Bell,
+    i18nKey: "chat.suggestionRemember",
+    text: "Ask me five questions about how I like to work, then save my answers to memory.",
+    Icon: Brain,
   },
   {
-    i18nKey: "chat.suggestionEmail",
-    text: "Read my latest emails and summarize them",
-    Icon: Mail,
+    i18nKey: "chat.suggestionResume",
+    text: "Search my past sessions and tell me what I was working on last and what is still unfinished.",
+    Icon: History,
   },
   {
-    i18nKey: "chat.suggestionScript",
-    text: "Write a Python script to rename all files in a folder",
-    Icon: Code,
-  },
-  {
-    i18nKey: "chat.suggestionSchedule",
-    text: "Schedule a cron job to back up my database every night",
-    Icon: Clock,
-  },
-  {
-    i18nKey: "chat.suggestionAnalyze",
-    text: "Analyze this CSV file and show key insights",
-    Icon: ChartLine,
+    i18nKey: "chat.suggestionSkill",
+    text: "Walk me through a task I repeat often, then save it as a skill you can reuse.",
+    Icon: BookmarkPlus,
   },
 ];
 
@@ -79,8 +69,6 @@ export const ChatEmptyState = memo(function ChatEmptyState({
           />
         )}
       </div>
-      <div className="chat-empty-text">{t("chat.emptyTitle")}</div>
-      <div className="chat-empty-hint">{t("chat.emptyHint")}</div>
       <div className="chat-empty-suggestions">
         {SUGGESTIONS.map(({ i18nKey, text, Icon }) => (
           <button

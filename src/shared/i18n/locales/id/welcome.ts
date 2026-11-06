@@ -1,7 +1,7 @@
 export default {
   title: "Selamat datang di Hermes",
   subtitle:
-    "Asisten AI yang terus berkembang dan berjalan lokal di mesin Anda. Privat, kuat, dan selalu belajar.",
+    "Petasos menjalankan agen Hermes di mesin ini. Ia mengingat apa yang Anda katakan dan mengubah tugas yang Anda ulangi menjadi skill yang bisa dipakai lagi.",
   installIssueTitle: "Masalah Instalasi",
   getStarted: "Mulai",
   retryInstall: "Ulangi Instalasi",

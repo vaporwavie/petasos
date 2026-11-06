@@ -1,7 +1,7 @@
 export default {
   title: "Hermes'e Hoş Geldiniz",
   subtitle:
-    "Makinenizde yerel olarak çalışan, kendini geliştiren yapay zeka asistanınız. Gizli, güçlü ve sürekli öğrenen.",
+    "Petasos, Hermes ajanını bu makinede çalıştırır. Ona söylediklerini hatırlar ve tekrarladığın görevleri yeniden kullanabileceği yeteneklere dönüştürür.",
   installIssueTitle: "Kurulum Sorunu",
   getStarted: "Başlayın",
   retryInstall: "Kurulumu Tekrar Dene",

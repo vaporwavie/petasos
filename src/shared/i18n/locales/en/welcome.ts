@@ -1,7 +1,7 @@
 export default {
   title: "Welcome to Petasos",
   subtitle:
-    "Your self-improving AI assistant that runs locally on your machine. Private, powerful, and always learning.",
+    "Petasos runs the Hermes agent on this machine. It remembers what you tell it and turns tasks you repeat into skills it can reuse.",
   installIssueTitle: "Installation Issue",
   getStarted: "Get Started",
   retryInstall: "Retry Installation",

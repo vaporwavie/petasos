@@ -1,7 +1,7 @@
 export default {
   title: "Hermes へようこそ",
   subtitle:
-    "あなたのマシンでローカル実行する自己進化型 AI アシスタント。プライベートで、強力で、常に学習します。",
+    "Petasos はこのマシンで Hermes エージェントを動かします。伝えたことを覚え、繰り返す作業を再利用できるスキルにします。",
   installIssueTitle: "インストールの問題",
   getStarted: "始める",
   retryInstall: "再インストール",

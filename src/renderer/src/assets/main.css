@@ -4904,20 +4904,6 @@ body:has(.shell-vibrant),
   -webkit-mask-size: contain;
 }
 
-.chat-empty-text {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.chat-empty-hint {
-  font-size: 14px;
-  color: var(--text-muted);
-  max-width: 360px;
-  text-align: center;
-  line-height: 1.5;
-}
-
 .chat-empty-suggestions {
   display: flex;
   flex-wrap: wrap;

@@ -1,5 +1,5 @@
 export default {
-  title: "Set Up Your AI Provider",
+  title: "Set up your AI provider",
   subtitle: "Choose a provider and configure it to get started",
   providerCards: {
     openrouter: { name: "OpenRouter", desc: "200+ models", tag: "Recommended" },

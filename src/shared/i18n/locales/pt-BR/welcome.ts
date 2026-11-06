@@ -1,7 +1,7 @@
 export default {
   title: "Bem-vindo ao Hermes",
   subtitle:
-    "Seu assistente de IA que se aprimora sozinho e roda localmente na sua máquina. Privado, poderoso e sempre aprendendo.",
+    "O Petasos roda o agente Hermes nesta máquina. Ele lembra o que você conta e transforma tarefas repetidas em habilidades que pode reutilizar.",
   installIssueTitle: "Problema na Instalação",
   getStarted: "Começar",
   retryInstall: "Tentar Instalação Novamente",

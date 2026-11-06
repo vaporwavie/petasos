@@ -1,7 +1,7 @@
 export default {
   title: "Bienvenido a Hermes",
   subtitle:
-    "Tu asistente de IA autoevolutivo que se ejecuta localmente en tu equipo. Privado, potente y siempre aprendiendo.",
+    "Petasos ejecuta el agente Hermes en este equipo. Recuerda lo que le cuentas y convierte las tareas que repites en habilidades que puede reutilizar.",
   installIssueTitle: "Problema de instalación",
   getStarted: "Comenzar",
   retryInstall: "Reintentar la instalación",
